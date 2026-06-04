@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목차 | 김소연 포트폴리오</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- script.js는 첫 페이지 전용이므로 여기선 뺐습니다 -->
+</head>
+<body>
+
+    <!-- 거추장스러운 스크롤 뼈대를 없애고 본문만 깔끔하게 남겼습니다 -->
+    <div class="content-area">
+
+        <div class="sentence-group menu-title-area scrolly-item delay-1">
+            <div class="word-group">
+                <img src="image/W.png" alt="W"><img src="image/H.png" alt="H">
+                <img src="image/E.png" alt="E"><img src="image/R.png" alt="R"><img src="image/E.png" alt="E">
+            </div>
+            <div class="word-group">
+                <img src="image/T.png" alt="T"><img src="image/O.png" alt="O">
+            </div>
+            <div class="word-group">
+                <img src="image/G.png" alt="G"><img src="image/O.png" alt="O">
+                <img src="image/물음표.png" alt="?">
+            </div>
+        </div>
+
+        <div class="menu-list">
+
+            <a href="about.html" class="menu-item scrolly-item delay-2">
+                <img src="image/보딩패스.png" alt="보딩패스" class="boarding-pass-icon">
+                <div class="sentence-group">
+                    <div class="word-group">
+                        <img src="image/A.png" alt="A"><img src="image/B.png" alt="B">
+                        <img src="image/O.png" alt="O"><img src="image/U.png" alt="U">
+                        <img src="image/T.png" alt="T">
+                    </div>
+                    <div class="word-group">
+                        <img src="image/M.png" alt="M"><img src="image/E.png" alt="E">
+                    </div>
+                </div>
+            </a>
+
+            <a href="skills.html" class="menu-item scrolly-item delay-3">
+                <img src="image/보딩패스.png" alt="보딩패스" class="boarding-pass-icon">
+                <div class="sentence-group">
+                    <div class="word-group">
+                        <img src="image/S.png" alt="S"><img src="image/K.png" alt="K">
+                        <img src="image/I.png" alt="I"><img src="image/L.png" alt="L">
+                        <img src="image/L.png" alt="L"><img src="image/S.png" alt="S">
+                    </div>
+                </div>
+            </a>
+
+            <a href="career.html" class="menu-item scrolly-item delay-4">
+                <img src="image/보딩패스.png" alt="보딩패스" class="boarding-pass-icon">
+                <div class="sentence-group">
+                    <div class="word-group">
+                        <img src="image/C.png" alt="C"><img src="image/A.png" alt="A">
+                        <img src="image/R.png" alt="R"><img src="image/E.png" alt="E">
+                        <img src="image/E.png" alt="E"><img src="image/R.png" alt="R">
+                    </div>
+                </div>
+            </a>
+
+            <a href="archiving.html" class="menu-item scrolly-item delay-5">
+                <img src="image/보딩패스.png" alt="보딩패스" class="boarding-pass-icon">
+                <div class="sentence-group">
+                    <div class="word-group">
+                        <img src="image/A.png" alt="A"><img src="image/R.png" alt="R">
+                        <img src="image/C.png" alt="C"><img src="image/H.png" alt="H">
+                        <img src="image/I.png" alt="I"><img src="image/V.png" alt="V">
+                        <img src="image/I.png" alt="I"><img src="image/N.png" alt="N">
+                        <img src="image/G.png" alt="G">
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>7syeonk29@gmail.com</p>
+        <p>&copy; 2026. KIM SO YEON. All rights reserved.</p>
+    </footer>
+
+    <!-- 👇 스크롤 없이 페이지가 열리자마자 자동으로 스르륵 등장하게 하는 스크립트 -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // 접속하고 0.1초 뒤에 자연스럽게 애니메이션 시작!
+            setTimeout(() => {
+                const scrollyItems = document.querySelectorAll('.scrolly-item');
+                scrollyItems.forEach(item => {
+                    item.classList.add('show');
+                });
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>

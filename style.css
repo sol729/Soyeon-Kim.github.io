@@ -1,0 +1,541 @@
+/* style.css */
+
+/* style.css 맨 위쪽 body 부분 수정 */
+
+/* style.css 맨 위쪽 body 부분 수정 */
+
+body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    margin: 0;
+    padding: 0;
+
+    /* 👇 변경된 부분: 구름과 하늘색 배경 대신 배경.jpg 이미지 적용 */
+    background-image: url('image/배경.jpg');
+    background-size: cover; /* 이미지가 화면 전체를 꽉 채우도록 설정 */
+    background-repeat: no-repeat; /* 이미지 반복 방지 */
+    background-position: center; /* 이미지를 화면 중앙에 맞춤 */
+    background-attachment: fixed; /* 💡 핵심: 스크롤을 내려도 배경은 고정되어 고급스러운 연출 가능 */
+
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ⚠️ 주의: 기존에 body 아래에 있었던 '@keyframes movingClouds { ... }' 코드는 이제 필요 없으니 깨끗하게 지워주세요! */
+
+/* ========================================= */
+/* 🌟 정통 Scrollytelling 뼈대 설정 */
+/* ========================================= */
+.scrolly-container {
+    height: 350vh; /* 마우스를 한참 내릴 수 있도록 긴 가상의 트랙(3.5페이지 길이)을 만듭니다 */
+    width: 100%;
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh; /* 화면 중앙에 딱 고정됩니다 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- 공통 스크롤 등장/퇴장 애니메이션 --- */
+.scrolly-item {
+    opacity: 0; /* 처음엔 완전 투명하게 숨김 */
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.scrolly-item.show {
+    opacity: 1; /* 스크롤 되면 나타남 */
+    transform: translateY(0);
+}
+
+/* --- 📝 알파벳 이미지 단어/문장 공통 설정 --- */
+.sentence-group {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.word-group {
+    display: flex;
+    gap: 5px;
+}
+
+.word-group img {
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+.word-group img:nth-child(1) { animation-delay: 0s; }
+.word-group img:nth-child(2) { animation-delay: 0.2s; }
+.word-group img:nth-child(3) { animation-delay: 0.4s; }
+.word-group img:nth-child(4) { animation-delay: 0.6s; }
+.word-group img:nth-child(5) { animation-delay: 0.8s; }
+.word-group img:nth-child(6) { animation-delay: 1.0s; }
+.word-group img:nth-child(7) { animation-delay: 1.2s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* 🌟 WELCOME 및 버튼 알파벳 크기 조절 */
+.welcome-area {
+    margin-top: 100px; /* 상단 여백을 넉넉히 주어 글자가 잘리지 않게 합니다 */
+    margin-bottom: 20px;
+}
+.welcome-area .word-group img {
+    height: 110px !important; /* 👈 바로 이 숫자를 바꿔서 WHERE TO GO 크기를 조절하세요! (예: 60px, 90px) */
+    width: auto !important;
+}
+/* 👇 바로 이 부분을 찾아서 아래처럼 수정해 주세요! */
+.button-area .word-group img {
+    width: 35px;
+    animation: none !important; /* 💡 둥실거리는 애니메이션을 강제로 정지시킵니다 */
+    transform: none !important; /* 위아래로 움직이던 기본 효과까지 완전 차단 */
+}
+/* ========================================= */
+/* 🌟 캐릭터 & 비행기 (같은 행 배치 및 왼쪽->오른쪽 애니메이션) */
+/* ========================================= */
+
+/* 가로 방향 스크롤리텔링 (왼쪽 -> 오른쪽) */
+.scrolly-item-horizontal {
+    opacity: 0;
+    transform: translateX(-150px); /* 왼쪽으로 한참 빠져서 대기 */
+    transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); /* 쫀득하고 부드럽게 날아오는 효과 */
+}
+
+.scrolly-item-horizontal.show {
+    opacity: 1;
+    transform: translateX(0); /* 제자리로 짠! */
+}
+
+/* 캐릭터와 비행기를 양옆으로 나란히 두는 행(Row) 컨테이너 */
+.character-row {
+    display: flex;
+    flex-direction: row; /* 가로(행) 정렬 */
+    align-items: center; /* 수직 중앙 맞춤 */
+    justify-content: center; /* 화면 가운데 정렬 */
+    gap: 2vw; /* 캐릭터와 비행기 사이의 넉넉한 간격 */
+    width: 100%;
+    margin-top: -8vh; /* 💡 WELCOME 글자가 너무 크면 겹치게 살짝 위로 당겨줌 (입체감 부여) */
+    position: relative;
+    z-index: 2;
+}
+
+/* ========================================= */
+/* 🌟 캐릭터 회전(3D Flip) 효과 및 영역 설정 */
+/* ========================================= */
+
+/* 회전하는 카드의 전체 틀 (원근감 부여) */
+.flip-box {
+    background-color: transparent;
+    perspective: 1000px; /* 빙글 돌 때 입체감이 느껴지도록 원근감을 줍니다 */
+    z-index: 5;
+}
+
+/* 카드의 안쪽 뼈대 (앞/뒷면을 묶어서 같이 돌려주는 역할) */
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1); /* 0.8초 동안 아주 쫀득하게 돌아갑니다 */
+    transform-style: preserve-3d; /* 3D 공간 유지 */
+}
+
+/* 💡 핵심: 마우스를 올렸을 때(hover) Y축(가로)을 기준으로 180도 회전! */
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+/* 앞면과 뒷면 공통 설정 */
+.flip-box-front, .flip-box-back {
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* 사파리 호환성 */
+    backface-visibility: hidden; /* 뒷면일 때는 화면에서 안 보이게 숨김 */
+}
+
+/* 앞면 (기본 상태) */
+.flip-box-front {
+    position: relative; /* 앞면이 전체 크기를 잡아주도록 설정 */
+}
+
+/* 뒷면 (처음엔 180도 뒤집혀서 대기하다가, 돌면 나타남) */
+.flip-box-back {
+    position: absolute; /* 앞면 바로 뒤에 딱 겹치도록 띄움 */
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg); /* 180도 돌려놓음 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🖼️ 실제 이미지 크기 설정 (기존 설정 유지) */
+.character-img {
+    height: 60vh;
+    width: auto;
+    max-width: 90vw;
+    object-fit: contain;
+    border-radius: 20px;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
+}
+
+/* 📸 실제 사진(뒷면) 아랫부분 자연스럽게 스르륵 흐려지는(페이드아웃) 효과 */
+.flip-box-back .character-img {
+    /* 위에서부터 70%까지는 선명하게 보이고, 그 아래부터 100% 끝까지 서서히 투명해집니다 */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+}
+
+/* 비행기 및 버튼 영역 */
+.next-button-container {
+    display: flex;
+    flex-direction: column; /* 비행기 아래에 글자가 오도록 세로 정렬 */
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* 마우스를 올리면 비행기가 오른쪽으로 슝 날아가는 효과 */
+.next-button-container:hover {
+    transform: translateX(40px);
+}
+
+.airplane-img {
+    width: 300px; /* 💡 비행기 크기도 큼지막하게! */
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* ========================================= */
+/* --- 4. 목차 페이지(menu.html) 전용 --- */
+/* ========================================= */
+/* 👇 이 세 줄을 새로 추가해 주세요! (WHERE TO GO 글자 크기 전용 조절기) */
+.menu-title-area .word-group img {
+    height: 110px !important; /* 👈 바로 이 숫자를 바꿔서 WHERE TO GO 크기를 조절하세요! (예: 60px, 90px) */
+    width: auto !important;
+}
+
+/* 💡 1. WHERE TO GO 타이틀 잘림 방지 (새로 추가됨) */
+.menu-title-area {
+    margin-top: 100px; /* 상단 여백을 넉넉히 주어 글자가 잘리지 않게 합니다 */
+    margin-bottom: 20px;
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+    width: 100%;
+    align-items: center; /* 💡 2. 덩어리 전체는 화면 중앙에 예쁘게 정렬 */
+    margin-top: 20px;
+}
+
+/* 껍데기 버튼 */
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* 👇 이 숫자를 기존보다 더 큰 숫자로 늘려주세요! */
+    width: 850px; /* 👈 850px이나 900px 정도로 수정해 보세요. */
+
+    max-width: 95vw;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    padding: 10px 0;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+.menu-item:active {
+    transform: translateY(2px);
+}
+
+/* 🎫 보딩패스 아이콘 */
+.boarding-pass-icon {
+    width: 250px;
+    height: auto;
+    /* 💡 3. 보딩패스와 첫 글자 사이 간격 좁히기 (35px -> 15px로 확 줄임) */
+    margin-right: 10px;
+}
+
+/* 📝 글자 컨테이너 */
+.menu-item .sentence-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* 🛑 알파벳 개별 이미지 제어 */
+.menu-item .word-group img {
+    height: 80px !important;
+    width: auto !important;
+    animation: none !important;
+    transform: none !important;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    margin: 0 1px;
+}
+
+/* --- 공통 Footer --- */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+footer p { margin: 5px 0; }
+
+/* ========================================= */
+/* --- 5. ABOUT ME 페이지 전용 --- */
+/* ========================================= */
+
+/* 마우스를 휠을 두 번 정도 내릴 수 있는 넉넉한 스크롤 트랙 */
+.about-track {
+    height: 250vh;
+}
+
+/* 🌟 이름 섹션 (왼쪽에서 등장) */
+.about-scrolly-left {
+    opacity: 0;
+    transform: translateX(-150px);
+    transition: all 1s ease-out;
+}
+.about-scrolly-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 🌟 이름 섹션 (오른쪽에서 등장, 0.5초 딜레이) */
+.about-scrolly-right {
+    opacity: 0;
+    transform: translateX(150px);
+    transition: all 1s ease-out;
+    transition-delay: 0.5s;
+}
+.about-scrolly-right.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 이름 컨테이너 (화면 정중앙보다 살짝 위에 고정) */
+.about-name-group {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    z-index: 1;
+}
+
+.about-name-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.about-name-row img {
+    height: 120px;
+    width: auto;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+}
+
+/* 🌟 하얀 도화지 컨테이너 (화면 아래에 숨어있다가 올라옴) */
+.about-bg-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    /* 💡 핵심: 처음엔 화면 한참 아래(60vh)로 내려가 있고 투명함 */
+    transform: translate(-50%, 60vh);
+    opacity: 0;
+
+    z-index: 10; /* 이름보다 무조건 앞에 와서 덮어버림 */
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* 자바스크립트가 show를 달아주면 중앙으로 완벽하게 안착! */
+.about-bg-wrapper.show {
+    /* 💡 중앙(-50%)으로 정확히 올라오고 투명도가 100%가 됨 */
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+/* 흰 배경 원본 그대로 & 크기 확대 */
+.about-bg-img {
+    width: 1500px;
+    max-width: 95vw;
+    height: auto;
+}
+/* ========================================= */
+/* --- 도화지 내부(Inner Content) 디자인 --- */
+/* ========================================= */
+
+/* 🌟 0. 경기천년제목 폰트 불러오기 (눈누 폰트) */
+@font-face {
+    font-family: 'GyeonggiTitleM';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiTitleM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 1. 상하좌우 여백 확 줄이기 (공간을 넓게 씁니다) */
+.about-inner-content {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    box-sizing: border-box;
+    padding: 5% 7%; /* 💡 기존 9%에서 대폭 줄여서 도화지를 꽉 차게 씁니다 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 2. 상단 영역 (사진과 카테고리 간격 조절) */
+.about-top-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px; /* 내용물이 커졌으니 사이 간격도 조금 더 여유 있게 */
+}
+
+/* --- 왼쪽 프로필 --- */
+.about-profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 25px; 👈 이 부분은 겹치게 할 거니까 지우거나 주석 처리해 주세요! */
+}
+
+/* (크기 설정은 그대로 유지) */
+.about-flip {
+    width: 250px;
+    height: 320px;
+    z-index: 1; /* 💡 사진이 글자 밑에 깔리도록 순위 지정 */
+}
+
+.about-flip img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+
+    /* 👇 추가된 부분: 사진 아래쪽을 첫 페이지처럼 스르륵 흐리게 만듭니다 */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
+
+/* 🌟 대소문자 그룹 (사진 위로 반쯤 올라타게 만들기) */
+.black-name-group {
+    display: flex;
+    align-items: flex-end;
+
+    /* 👇 추가된 부분: 음수(-) 마진을 주어 사진 위로 글자를 끌어올립니다! */
+    margin-top: -60px;
+    z-index: 2; /* 글자가 사진 위로 올라오도록 순위를 높임 */
+    position: relative;
+}
+
+.black-word img { width: auto; }
+
+.black-word img[src*="대문자"] { height: 38px; }
+.black-word img[src*="소문자"] { height: 26px; }
+
+/* 👇 추가된 부분: 7, 2, 9 숫자 이미지 크기 맞춤 (알파벳과 밸런스 조절) */
+.black-word img[src*="2.png"],
+.black-word img[src*="7.png"],
+.black-word img[src*="9.png"] {
+    height: 32px; /* 대문자보단 살짝 작고 소문자보단 크게 세팅 */
+}
+
+/* 특수기호 크기 및 위치 미세 조정 */
+.black-word img[src*="이동버튼"] { height: 18px; margin-bottom: 5px; margin-left: 8px; margin-right: 8px; align-self: center; }
+.black-word img[src*="온점"] { height: 8px; margin-bottom: 3px; }
+.black-word img[src*="@"] { height: 28px; }
+
+.space { width: 25px; }
+.space-small { width: 12px; }
+
+/* 숫자/하이픈 폰트 설정 (알파벳 이미지와 어울리게 크기 업) */
+.text-char {
+    font-size: 28px;
+    font-weight: 900;
+    font-family: 'Arial Black', sans-serif;
+    color: #333;
+    line-height: 0.9;
+    margin: 0 3px;
+}
+
+/* --- 5. 오른쪽 링크 카테고리 --- */
+.about-links-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* 버튼들 사이를 시원하게 띄움 */
+    align-items: flex-start;
+}
+
+.about-link-box {
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s;
+}
+
+.about-link-box:hover {
+    transform: translateX(10px);
+    opacity: 0.7;
+}
+
+/* 🛑 거대한 이동버튼(▶) 크기 강제 축소 및 위치 맞춤 */
+.link-arrow {
+    height: 30px !important; /* 소문자와 대문자 사이의 아담하고 적당한 크기로 고정! */
+    width: auto !important;
+    margin-left: 8px;
+    margin-right: 8px;
+    align-self: center; /* 찌그러지지 않도록 수직 중앙 정렬 */
+}
+
+/* --- 6. 📝 하단 텍스트 영역 --- */
+.about-bottom-text {
+    font-family: 'GyeonggiTitleM', sans-serif;
+    text-align: center;
+    font-size: 1.4rem;
+
+    /* 👇 수정된 부분: 1.8이었던 행간을 1.4로 확 줄여서 쫀쫀하게 만듭니다 */
+    line-height: 1.4;
+    color: #444;
+    margin-bottom: 3%;
+}
+
+.about-bottom-text p {
+    /* 👇 수정된 부분: 문단 사이 여백도 8px에서 4px로 줄였습니다 */
+    margin: 4px 0;
+}
