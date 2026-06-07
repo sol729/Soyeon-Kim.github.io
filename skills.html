@@ -2,15 +2,244 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABOUT ME | 김소연 포트폴리오</title>
+    <meta name="viewport" content="width=1280">
+    <title>SKILLS | 김소연 포트폴리오</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <div class="content-area">
-        <h1 style="color: #FF7F50; font-family: 'Apple SD Gothic Neo', sans-serif;">준비 중인 페이지입니다 🚀</h1>
+    <nav class="top-nav-bar">
+        <div class="nav-container">
+            <a href="about.html" class="nav-btn">
+                <img src="image/A.png" alt="A"><img src="image/B.png" alt="B"><img src="image/O.png" alt="O"><img src="image/U.png" alt="U"><img src="image/T.png" alt="T">
+            </a>
+            <a href="skills.html" class="nav-btn">
+                <img src="image/S.png" alt="S"><img src="image/K.png" alt="K"><img src="image/I.png" alt="I"><img src="image/L.png" alt="L"><img src="image/L.png" alt="L"><img src="image/S.png" alt="S">
+            </a>
+            <a href="career.html" class="nav-btn">
+                <img src="image/C.png" alt="C"><img src="image/A.png" alt="A"><img src="image/R.png" alt="R"><img src="image/E.png" alt="E"><img src="image/E.png" alt="E"><img src="image/R.png" alt="R">
+            </a>
+            <a href="archiving.html" class="nav-btn">
+                <img src="image/A.png" alt="A"><img src="image/R.png" alt="R"><img src="image/C.png" alt="C"><img src="image/H.png" alt="H"><img src="image/I.png" alt="I"><img src="image/V.png" alt="V"><img src="image/I.png" alt="I"><img src="image/N.png" alt="N"><img src="image/G.png" alt="G">
+            </a>
+        </div>
+    </nav>
+
+    <div class="scrolly-container">
+        <div class="sticky-wrapper">
+
+            <div class="skills-header">
+                <div class="skills-title-img">
+                    <img src="image/S.png" alt="S"><img src="image/K.png" alt="K"><img src="image/I.png" alt="I"><img src="image/L.png" alt="L"><img src="image/L.png" alt="L"><img src="image/S.png" alt="S">
+                </div>
+                <p class="skills-subtitle">
+                    <span class="yellow-star">★</span> 기존 사용 경험과 더불어, 생성형 AI를 사용하여 프로그램을 잘 다루고 빠르게 배우는 편입니다.
+                </p>
+            </div>
+
+            <div class="skills-bg-wrapper">
+                <img src="image/흰배경.png" alt="배경" class="skills-bg-img">
+
+                <div class="skills-inner-layout">
+
+                    <div class="skills-sidebar">
+                        <button class="skill-tab active" onclick="openSkillTab(event, 'tab-lang')">언어</button>
+                        <button class="skill-tab" onclick="openSkillTab(event, 'tab-doc')">문서 작업</button>
+                        <button class="skill-tab" onclick="openSkillTab(event, 'tab-comm')">커뮤니케이션 및 협업</button>
+                        <button class="skill-tab" onclick="openSkillTab(event, 'tab-content')">콘텐츠 제작</button>
+                        <button class="skill-tab" onclick="openSkillTab(event, 'tab-data')">데이터 분석</button>
+                    </div>
+
+                    <div class="skills-content-area">
+
+                        <div id="tab-lang" class="skill-pane active">
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/한국.png" alt="한국어"></div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">한국어</h3>
+                                    <p class="skill-desc">원어민 수준</p>
+                                </div>
+                                <div class="skill-gauge">
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/미국.png" alt="영어"></div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">영어</h3>
+                                    <p class="skill-desc">비즈니스 커뮤니케이션 가능<br><span class="cert-text">- OPIc IH | Cert No. 2A4386811543 | Jul 2025</span></p>
+                                </div>
+                                <div class="skill-gauge">
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/중국.png" alt="중국어"></div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">중국어</h3>
+                                    <p class="skill-desc">초급</p>
+                                </div>
+                                <div class="skill-gauge">
+                                    <div class="bars"><div class="bar fill"></div><div class="bar"></div><div class="bar"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/스페인.png" alt="스페인어"></div>
+                                <div class="skill-info">
+                                    <h3 class="skill-name">스페인어</h3>
+                                    <p class="skill-desc">초급</p>
+                                </div>
+                                <div class="skill-gauge">
+                                    <div class="bars"><div class="bar fill"></div><div class="bar"></div><div class="bar"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-doc" class="skill-pane">
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/엑셀.png" alt="Excel"></div>
+                                <div class="skill-info"><h3 class="skill-name">Excel</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">上</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/ppt.png" alt="PPT"></div>
+                                <div class="skill-info"><h3 class="skill-name">PPT</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">上</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/워드.png" alt="Word"></div>
+                                <div class="skill-info"><h3 class="skill-name">Word</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">上</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/한글.png" alt="한글"></div>
+                                <div class="skill-info"><h3 class="skill-name">한글(HWP)</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">上</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-comm" class="skill-pane">
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/구글.png" alt="Google Workspace"></div>
+                                <div class="skill-info"><h3 class="skill-name">Google Workspace</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">中</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/노션.png" alt="Notion"></div>
+                                <div class="skill-info"><h3 class="skill-name">Notion</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">上</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/두레이.png" alt="Dooray!"></div>
+                                <div class="skill-info"><h3 class="skill-name">Dooray!</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">上</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-content" class="skill-pane">
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/피그마.png" alt="Figma"></div>
+                                <div class="skill-info"><h3 class="skill-name">Figma</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">中</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/캡컷.png" alt="CapCut"></div>
+                                <div class="skill-info"><h3 class="skill-name">CapCut</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">上</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/프로크리에이트.png" alt="Procreate"></div>
+                                <div class="skill-info"><h3 class="skill-name">Procreate</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">上</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/캔바.png" alt="Canva"></div>
+                                <div class="skill-info"><h3 class="skill-name">Canva</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">上</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/미캔.png" alt="Miricanvas"></div>
+                                <div class="skill-info"><h3 class="skill-name">Miricanvas</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">上</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar fill"></div><div class="bar fill"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/포토샵.png" alt="Adobe Photoshop"></div>
+                                <div class="skill-info"><h3 class="skill-name">Adobe Photoshop</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">下</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar"></div><div class="bar"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-data" class="skill-pane">
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/sql.png" alt="SQL"></div>
+                                <div class="skill-info"><h3 class="skill-name">SQL - Postgre SQL</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">下</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar"></div><div class="bar"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/bi.png" alt="Power BI"></div>
+                                <div class="skill-info"><h3 class="skill-name">Power BI</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">下</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar"></div><div class="bar"></div></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><img src="program/python.png" alt="Python"></div>
+                                <div class="skill-info"><h3 class="skill-name">Python - Pycham</h3></div>
+                                <div class="skill-gauge">
+                                    <span class="hanja">下</span>
+                                    <div class="bars"><div class="bar fill"></div><div class="bar"></div><div class="bar"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <footer>
@@ -18,5 +247,20 @@
         <p>&copy; 2026. KIM SO YEON. All rights reserved.</p>
     </footer>
 
+    <script>
+        function openSkillTab(evt, tabId) {
+            // 모든 콘텐츠 숨기기
+            const panes = document.querySelectorAll('.skill-pane');
+            panes.forEach(pane => pane.classList.remove('active'));
+
+            // 모든 버튼 비활성화
+            const tabs = document.querySelectorAll('.skill-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // 클릭한 탭과 콘텐츠만 활성화
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>

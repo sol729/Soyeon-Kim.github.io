@@ -14,6 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const scrollY = window.scrollY; // 마우스를 내린 거리
             const vh = window.innerHeight;  // 현재 모니터 화면 1장 높이
 
+            // 👇 새로 추가하는 부분: 스크롤 유도 문구 숨기기
+            const scrollPrompt = document.querySelector('.scroll-prompt');
+            if (scrollPrompt) {
+                if (scrollY > 20) {
+                    // 스크롤을 조금이라도 내리면 투명하게 사라짐
+                    scrollPrompt.classList.add('hide');
+                } else {
+                    // 다시 맨 위로 올리면 나타남
+                    scrollPrompt.classList.remove('hide');
+                }
+            }
+
             // 1. 아주 살짝 내렸을 때 (화면의 30% 지점 통과) -> WELCOME 등장!
             if (welcome) {
                 if (scrollY > vh * 0.3) welcome.classList.add('show');

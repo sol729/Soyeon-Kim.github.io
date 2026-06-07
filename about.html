@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280">
     <title>ABOUT ME | 김소연 포트폴리오</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <nav class="top-nav-bar">
+        <div class="nav-container">
+            <a href="about.html" class="nav-btn">
+                <img src="image/A.png" alt="A"><img src="image/B.png" alt="B"><img src="image/O.png" alt="O"><img src="image/U.png" alt="U"><img src="image/T.png" alt="T">
+            </a>
+            <a href="skills.html" class="nav-btn">
+                <img src="image/S.png" alt="S"><img src="image/K.png" alt="K"><img src="image/I.png" alt="I"><img src="image/L.png" alt="L"><img src="image/L.png" alt="L"><img src="image/S.png" alt="S">
+            </a>
+            <a href="career.html" class="nav-btn">
+                <img src="image/C.png" alt="C"><img src="image/A.png" alt="A"><img src="image/R.png" alt="R"><img src="image/E.png" alt="E"><img src="image/E.png" alt="E"><img src="image/R.png" alt="R">
+            </a>
+            <a href="archiving.html" class="nav-btn">
+                <img src="image/A.png" alt="A"><img src="image/R.png" alt="R"><img src="image/C.png" alt="C"><img src="image/H.png" alt="H"><img src="image/I.png" alt="I"><img src="image/V.png" alt="V"><img src="image/I.png" alt="I"><img src="image/N.png" alt="N"><img src="image/G.png" alt="G">
+            </a>
+        </div>
+    </nav>
+
     <div class="scrolly-container about-track">
         <div class="sticky-wrapper">
+
+            <div class="scroll-prompt">
+                <p>Please scroll down</p>
+                <span class="arrow">↓</span>
+            </div>
 
             <div class="about-name-group">
                 <div class="about-name-row about-scrolly-left">
@@ -17,7 +39,6 @@
                     <img src="image/I.png" alt="I">
                     <img src="image/M.png" alt="M">
                 </div>
-
                 <div class="about-name-row about-scrolly-right">
                     <img src="image/S.png" alt="S">
                     <img src="image/O.png" alt="O">
@@ -32,7 +53,6 @@
                 <img src="image/흰배경.png" alt="내용 배경" class="about-bg-img">
 
                 <div class="about-inner-content">
-
                     <div class="about-top-area">
 
                         <div class="about-profile-section">
@@ -48,68 +68,33 @@
                             </div>
                             <div class="black-name-group">
                                 <div class="black-word">
-                                    <img src="image_black/대문자k.png" alt="K"><img src="image_black/소문자i.png" alt="i"><img src="image_black/소문자m.png" alt="m">
+                                    <img src="image/K.png" alt="K"><img src="image/I.png" alt="I"><img src="image/M.png" alt="M">
                                 </div>
                                 <span style="display: inline-block; width: 15px;"></span>
                                 <div class="black-word">
-                                    <img src="image_black/대문자s.png" alt="S"><img src="image_black/소문자o.png" alt="o"><img src="image_black/소문자y.png" alt="y"><img src="image_black/소문자e.png" alt="e"><img src="image_black/소문자o.png" alt="o"><img src="image_black/소문자n.png" alt="n">
+                                    <img src="image/S.png" alt="S"><img src="image/O.png" alt="O"><img src="image/Y.png" alt="Y"><img src="image/E.png" alt="E"><img src="image/O.png" alt="O"><img src="image/N.png" alt="N">
                                 </div>
                             </div>
                         </div>
 
                         <div class="about-links-section">
-
-                            <!-- 1. E-mail (클릭 시 복사, 숫자 이미지 적용 완료!) -->
-                            <a href="#" class="about-link-box" onclick="copyEmail(event)">
-                                <div class="black-word">
-                                    <img src="image_black/대문자e.png" alt="E"><img src="image_black/소문자m.png" alt="m"><img src="image_black/소문자a.png" alt="a"><img src="image_black/소문자i.png" alt="i"><img src="image_black/소문자l.png" alt="l">
-                                </div>
-                                <img src="image_black/이동버튼.png" alt="▶" class="link-arrow">
-                                <div class="black-word">
-                                    <!-- 👇 폰트 대신 숫자 이미지로 교체! -->
-                                    <img src="image_black/7.png" alt="7">
-                                    <img src="image_black/소문자s.png" alt="s"><img src="image_black/소문자y.png" alt="y"><img src="image_black/소문자e.png" alt="e"><img src="image_black/소문자o.png" alt="o"><img src="image_black/소문자n.png" alt="n"><img src="image_black/소문자k.png" alt="k">
-                                    <img src="image_black/2.png" alt="2"><img src="image_black/9.png" alt="9">
-                                    <img src="image_black/@.png" alt="@">
-                                    <img src="image_black/소문자g.png" alt="g"><img src="image_black/소문자m.png" alt="m"><img src="image_black/소문자a.png" alt="a"><img src="image_black/소문자i.png" alt="i"><img src="image_black/소문자l.png" alt="l">
-                                    <img src="image_black/온점.png" alt=".">
-                                    <img src="image_black/소문자c.png" alt="c"><img src="image_black/소문자o.png" alt="o"><img src="image_black/소문자m.png" alt="m">
-                                </div>
+                            <a href="#" class="about-link-box text-link" onclick="copyEmail(event)">
+                                ▶ E-mail 복사하기
                             </a>
-
-                            <a href="https://www.linkedin.com/in/soyeon-kim-735996394" target="_blank" class="about-link-box">
-                                <div class="black-word">
-                                    <img src="image_black/대문자l.png" alt="L"><img src="image_black/소문자i.png" alt="i"><img src="image_black/소문자n.png" alt="n"><img src="image_black/소문자k.png" alt="k"><img src="image_black/소문자e.png" alt="e"><img src="image_black/소문자d.png" alt="d">
-                                    <span style="display: inline-block; width: 15px;"></span>
-                                    <img src="image_black/소문자i.png" alt="i"><img src="image_black/소문자n.png" alt="n">
-                                </div>
-                                <img src="image_black/이동버튼.png" alt="▶" class="link-arrow">
+                            <a href="https://www.linkedin.com/in/soyeon-kim-735996394" target="_blank" class="about-link-box text-link">
+                                ▶ LinkedIn 바로가기
                             </a>
-
-                            <a href="https://drive.google.com/drive/folders/12Eg0Wg3hJxGtJngfE_HioBsgVnFIuzoo?usp=sharing" target="_blank" class="about-link-box">
-                                <div class="black-word">
-                                    <img src="image_black/대문자p.png" alt="P"><img src="image_black/대문자p.png" alt="P"><img src="image_black/대문자t.png" alt="T">
-                                    <span style="display: inline-block; width: 15px;"></span>
-                                    <img src="image_black/대문자p.png" alt="P"><img src="image_black/소문자o.png" alt="o"><img src="image_black/소문자r.png" alt="r"><img src="image_black/소문자t.png" alt="t"><img src="image_black/소문자f.png" alt="f"><img src="image_black/소문자o.png" alt="o"><img src="image_black/소문자l.png" alt="l"><img src="image_black/소문자i.png" alt="i"><img src="image_black/소문자o.png" alt="o">
-                                </div>
-                                <img src="image_black/이동버튼.png" alt="▶" class="link-arrow">
+                            <a href="https://drive.google.com/drive/folders/12Eg0Wg3hJxGtJngfE_HioBsgVnFIuzoo?usp=sharing" target="_blank" class="about-link-box text-link">
+                                ▶ PPT Portfolio 확인하기
                             </a>
-
-                            <a href="https://drive.google.com/drive/folders/12_uu06jVCLRqLd8jphip2cSTAtKFF7N7?usp=sharing" target="_blank" class="about-link-box">
-                                <div class="black-word">
-                                    <img src="image_black/대문자r.png" alt="R"><img src="image_black/소문자e.png" alt="e"><img src="image_black/소문자s.png" alt="s"><img src="image_black/소문자u.png" alt="u"><img src="image_black/소문자m.png" alt="m"><img src="image_black/소문자e.png" alt="e">
-                                </div>
-                                <img src="image_black/이동버튼.png" alt="▶" class="link-arrow">
+                            <a href="https://drive.google.com/drive/folders/12_uu06jVCLRqLd8jphip2cSTAtKFF7N7?usp=sharing" target="_blank" class="about-link-box text-link">
+                                ▶ Resume 확인하기
                             </a>
-
-                            <a href="https://github.com/sol729" target="_blank" class="about-link-box">
-                                <div class="black-word">
-                                    <img src="image_black/대문자g.png" alt="G"><img src="image_black/소문자i.png" alt="i"><img src="image_black/소문자t.png" alt="t"><img src="image_black/소문자h.png" alt="h"><img src="image_black/소문자u.png" alt="u"><img src="image_black/소문자b.png" alt="b">
-                                </div>
-                                <img src="image_black/이동버튼.png" alt="▶" class="link-arrow">
+                            <a href="https://github.com/sol729" target="_blank" class="about-link-box text-link">
+                                ▶ GitHub 바로가기
                             </a>
-
                         </div>
+
                     </div>
 
                     <div class="about-bottom-text">
@@ -119,12 +104,12 @@
                         <p>그렇게 다양한 경력과 경험을 쌓았으며, 매번 새로운 계획과 도전은 큰 자극제가 되어 주었습니다.</p>
                         <p>앞으로 함께 발전해 나갈 기회를 만들겠습니다.</p>
                         <p style="margin-top: 25px;">
-    <span style="color: #FFB300; font-size: 30px;">★</span> 새로운 커리어 기회와 커피챗은 언제나 환영합니다! <span style="color: #FFB300; font-size: 30px;">★</span>
-</p>
-
+                            <span style="color: #FFB300; font-size: 30px;">★</span> 새로운 커리어 기회와 커피챗은 언제나 환영합니다! <span style="color: #FFB300; font-size: 30px;">★</span>
+                        </p>
                     </div>
 
-                </div> </div>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -137,40 +122,49 @@
     <script>
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
-            const vh = window.innerHeight; // 화면 1칸의 높이
+            const vh = window.innerHeight;
+
+            const scrollPrompt = document.querySelector('.scroll-prompt');
+            if (scrollPrompt) {
+                if (scrollY > 20) {
+                    scrollPrompt.classList.add('hide');
+                } else {
+                    scrollPrompt.classList.remove('hide');
+                }
+            }
 
             const nameLeft = document.querySelector('.about-scrolly-left');
             const nameRight = document.querySelector('.about-scrolly-right');
             const whiteBg = document.querySelector('.about-bg-wrapper');
 
-            // 1. 스크롤을 살짝만(10px) 굴리면 이름이 양옆에서 날아옵니다!
-            if (scrollY > 10) {
-                nameLeft.classList.add('show');
-                nameRight.classList.add('show');
-            } else {
-                // 맨 위로 올리면 다시 숨음
-                nameLeft.classList.remove('show');
-                nameRight.classList.remove('show');
+            if (nameLeft && nameRight) {
+                if (scrollY > 10) {
+                    nameLeft.classList.add('show');
+                    nameRight.classList.add('show');
+                } else {
+                    nameLeft.classList.remove('show');
+                    nameRight.classList.remove('show');
+                }
             }
 
-            // 2. 스크롤을 한참 내려서 화면의 60% 이상 내려가면 도화지가 아래서 올라옵니다!
-            if (scrollY > vh * 0.6) {
-                whiteBg.classList.add('show');
-            } else {
-                // 다시 스크롤을 위로 올리면 도화지가 밑으로 내려감
-                whiteBg.classList.remove('show');
+            if (whiteBg) {
+                if (scrollY > vh * 0.6) {
+                    whiteBg.classList.add('show');
+                } else {
+                    whiteBg.classList.remove('show');
+                }
             }
         });
 
-        // 🌟 이메일 복사 스크립트
+        // 🌟 이메일 복사 스크립트 (줄바꿈과 하트 추가 완료!)
         function copyEmail(event) {
-            event.preventDefault(); // 스크롤 튕김 현상 방지
+            event.preventDefault();
             navigator.clipboard.writeText('7syeonk29@gmail.com').then(() => {
-                alert('소연님의 이메일 주소(7syeonk29@gmail.com)가 복사되었습니다! 💌');
+                // \n은 줄바꿈입니다! 노란 하트 💛를 맨 뒤에 넣었어요.
+                alert('소연님의 이메일 주소(7syeonk29@gmail.com)가 복사되었습니다! 💌\n\n좋은 소식을 기다릴게요 💛');
             });
         }
-
+        window.dispatchEvent(new Event('scroll'));
     </script>
-
 </body>
 </html>

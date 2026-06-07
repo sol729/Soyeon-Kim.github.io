@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280">
     <title>김소연 | 포트폴리오</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
@@ -13,6 +13,15 @@
     <div class="scrolly-container">
 
         <div class="sticky-wrapper">
+
+            <div class="scrolly-container"> <div class="sticky-wrapper">
+
+            <div class="scroll-prompt">
+                <p>Please scroll down</p>
+                <span class="arrow">↓</span>
+            </div>
+
+            <div class="welcome-area ...">
 
             <!-- 1. WELCOME -->
             <div class="sentence-group scrolly-item welcome-area">
@@ -71,11 +80,14 @@
         </div>
     </div>
 
-    <!-- 푸터 -->
-    <footer>
+<footer>
         <p>7syeonk29@gmail.com</p>
         <p>&copy; 2026. KIM SO YEON. All rights reserved.</p>
     </footer>
+
+    <script>
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 
 </body>
 </html>
