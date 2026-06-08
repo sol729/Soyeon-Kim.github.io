@@ -85,7 +85,7 @@ body {
 }
 
 .scroll-prompt p {
-    font-size: 1.2rem;
+    font-size: 2.5rem;
     letter-spacing: 2px;
     margin: 0 0 10px 0;
     text-transform: uppercase;
@@ -677,6 +677,472 @@ body {
 }
 
 /* ========================================= */
+/* 🌟 9. CAREER 페이지 전용 디자인 (Stacking) */
+/* ========================================= */
+
+.career-track {
+    height: 220vh; /* 펼쳐지는 스크롤 감도를 위한 트랙 길이 */
+}
+
+.career-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 90px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.career-title-img img {
+    height: 90px;
+    margin: 0 2px;
+}
+
+/* 겹침 스택 영역 */
+.career-stack-area {
+    position: relative;
+    width: 1100px;
+    max-width: 90vw;
+    height: 580px; /* 카드 두 개가 겹쳐서 놀 수 있는 무대 높이 */
+    margin: 0 auto;
+}
+
+.career-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
+
+.career-bg-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 내부 컨텐츠 수동 배치 규칙 */
+.career-inner-content {
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 12%;
+    right: 12%;
+    width: 76%;
+    height: 70%;
+    box-sizing: border-box;
+    font-family: 'GyeonggiTitleM', sans-serif;
+    color: #444444;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 정중앙 정렬용 헬퍼 */
+.career-inner-content.content-center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* --- 1층 카드 디테일 --- */
+.first-card {
+    z-index: 2; /* 1층 카드가 위를 먼저 덮음 */
+}
+
+.career-profile-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px dashed #e0e0e0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+/* --- 로고 (둥근 직사각형으로 변신!) --- */
+.career-icon {
+    width: 160px; /* 로고를 시원하게 키움 */
+    height: 75px;
+    border-radius: 20px; /* 동그라미 대신 부드러운 둥근 네모 */
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border: 1px solid #eaeaea; /* 깔끔한 테두리 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* 로고가 숨쉬도록 안쪽 여백 추가 */
+}
+
+.career-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 로고가 잘리지 않고 비율에 맞게 쏙 들어가게 함 */
+}
+
+.company-name {
+    font-size: 1.7rem;
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.company-dept {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 0;
+}
+
+.career-date {
+    font-size: 1.05rem;
+    color: #888;
+}
+
+.detail-row {
+    display: flex;
+    align-items: flex-start; /* 여러 줄일 경우 위쪽 정렬 */
+    gap: 15px;
+}
+
+/* --- 표 형식 디자인 --- */
+.career-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top:5px; /* 표 상단 여백 살짝 추가 */
+    border: 2px solid #FFB300;
+    border-radius: 20px; /* 테두리도 더 둥글게 */
+    overflow: hidden;
+    font-family: 'GyeonggiTitleM', sans-serif;
+    box-shadow: 0 4px 15px rgba(255, 179, 0, 0.05); /* 은은한 그림자 추가 */
+}
+
+/* 💡 세로폭 결정: padding 숫자를 키울수록 표가 위아래로 커집니다 */
+.career-table th, .career-table td {
+    padding: 15px 25px; /* 위아래 30px, 좌우 25px로 대폭 확대 */
+    border-bottom: 1px solid #FFB300;
+}
+
+.career-table tr:last-child th, .career-table tr:last-child td { border-bottom: none; }
+
+/* 제목 칸 (연한 노랑) */
+.career-table th {
+    background-color: #fffdf5;
+    color: #333;
+    width: 28%; /* 폰트가 커졌으므로 너비도 살짝 조정 */
+    text-align: center;
+    border-right: 1px solid #FFB300;
+    font-size: 1.3rem; /* 👈 제목 폰트 크기 확대 (기존보다 약 20% 업) */
+    font-weight: 900;
+}
+
+/* 내용 칸 (흰색) */
+.career-table td {
+    background-color: #ffffff;
+    color: #444;
+    font-size: 1.25rem; /* 👈 내용 폰트 크기 확대 */
+    line-height: 1.8;   /* 👈 줄 간격을 넓혀서 세로로 더 시원해 보이게 함 */
+    vertical-align: middle; /* 내용이 정중앙에 오도록 설정 */
+}
+
+/* --- 2층 카드 디테일 (Stacking 핵심) --- */
+.second-card {
+    z-index: 1; /* 처음엔 1층 뒤에 숨음 */
+    /* 👇 기본 상태: 아래로 60px 내려가 있고 아주 살짝만 삐져나와 보이게 설정 */
+    transform: translateY(75px) scale(0.96);
+    opacity: 0.6;
+}
+
+/* 👇 스크롤 내렸을 때 펼쳐지는 효과 */
+.second-card.unfold {
+    z-index: 3; /* 1층 카드를 위로 덮으며 전면 등장 */
+    transform: translateY(240px) scale(1); /* 아래로 완전히 펼쳐져 나열되도록 위치 조정 */
+    opacity: 1;
+}
+
+.career-closing-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 35px;
+}
+.career-closing-text p { margin: 6px 0; }
+
+/* 버튼 그룹 디자인 */
+.career-button-group {
+    display: flex;
+    gap: 20px;
+}
+
+.career-link-btn {
+    font-family: 'GyeonggiTitleM', sans-serif;
+    font-size: 1.25rem;
+    color: #444444;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.career-link-btn:hover {
+    transform: translateY(-5px);
+    color: #FFB300;
+    border: 2px solid #FFB300;
+    box-shadow: 0 8px 20px rgba(255, 179, 0, 0.15);
+    background-color: #fffdf5;
+}
+
+/* ========================================= */
+/* 🌟 10. ARCHIVING 페이지 (CSS 연표 + JS 갤러리/모달 적용) */
+/* ========================================= */
+
+.archiving-page {
+    width: 100%;
+    padding-bottom: 100px;
+    overflow-x: hidden;
+}
+
+.archiving-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 140px;
+    margin-bottom: 80px;
+}
+
+.archiving-title-img img {
+    height: 90px;
+    margin: 0 2px;
+}
+
+.timeline-container {
+    width: 1300px;
+    max-width: 95vw;
+    margin: 0 auto;
+    font-family: 'GyeonggiTitleM', sans-serif;
+}
+
+/* 🌟 각 연표 항목 한 줄 (왼쪽: 텍스트 / 오른쪽: 사진) */
+.timeline-row {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 80px;
+    /* 👇 높이가 달라도 위아래 꽉 채우도록 변경! (끊김 방지 핵심) */
+    align-items: stretch;
+}
+
+/* 📝 왼쪽: 텍스트 영역 */
+.timeline-left {
+    flex: 1 !important; /* 👈 다른 모든 width 설정을 무시하고 이 설정을 우선함 */
+    position: relative;
+    padding-left: 45px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 🎨 색상 변경: CSS 연표 세로줄 */
+.timeline-line {
+    position: absolute;
+    left: 10px;
+    top: 0;        /* 👈 현재 칸의 맨 위부터 꽉 차게 시작! */
+    bottom: -80px; /* 👈 다음 칸까지 빈틈없이 뻗어나감! (margin-bottom 값과 동일) */
+    width: 4px;
+    background-color: #FFB300;
+}
+
+/* 💡 첫 번째 항목은 맨 위 점(가운데)부터 선이 시작됨 */
+.timeline-row:first-child .timeline-line {
+    top: 50%;
+}
+
+/* 💡 마지막 항목은 맨 아래 점(가운데)까지만 오고 멈춤 */
+.timeline-row:last-child .timeline-line {
+    bottom: 50%;
+}
+
+/* 🎨 색상 변경: CSS 연표 동그라미 (점) */
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    /* 👇 점을 텍스트와 딱 맞도록 수직 정중앙에 배치 */
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 24px;
+    height: 24px;
+    background-color: #FFB300;
+    border: 4px solid #fffdf5;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 2; /* 👈 선 위로 동그라미가 깔끔하게 얹히도록 z-index 추가 */
+}
+
+.archive-date {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 5px 0;
+}
+
+.archive-title {
+    font-size: 1.8rem;
+    color: #333333;
+    margin: 0 0 15px 0;
+    line-height: 1.4;
+}
+
+.archive-desc {
+    font-size: 1.3rem;
+    color: #555555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.archive-org {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #666666;
+    margin: -5px 0 15px 0;
+    background-color: #fffdf5;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+.github-link-btn {
+    display: inline-block;
+    margin-top: 15px;
+    font-family: 'GyeonggiTitleM', sans-serif;
+    font-size: 1.15rem;
+    color: #555555 !important;
+    background-color: #ffffff;
+    padding: 10px 24px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    border: 2px solid #eeeeee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+}
+.github-link-btn:hover {
+    transform: translateY(-5px);
+    color: #FFB300 !important;
+    border: 2px solid #FFB300;
+    background-color: #fffdf5;
+    box-shadow: 0 6px 15px rgba(255, 179, 0, 0.15);
+}
+
+/* 📸 오른쪽: 무한 스크롤 갤러리 영역 (JS 조작용) */
+.timeline-right {
+    width: 60%;
+    position: relative; /* 양옆 버튼 배치를 위한 기준점 */
+    margin-top: 25px;
+}
+
+.gallery-container {
+    overflow-x: auto; /* JS 스크롤을 위해 가로 스크롤 허용 */
+    scrollbar-width: none; /* 파이어폭스 스크롤바 숨김 */
+    -ms-overflow-style: none; /* IE 스크롤바 숨김 */
+    padding: 30px 0; /* 호버 시 이미지가 커져도 잘리지 않게 여유 공간 */
+    border-radius: 20px;
+}
+/* 크롬, 사파리 스크롤바 완벽 숨김 */
+.gallery-container::-webkit-scrollbar { display: none; }
+
+.gallery-track {
+    display: flex;
+    gap: 0px;
+    width: max-content; /* 사진 길이만큼 컨테이너 확장 */
+}
+
+/* 🎨 양옆 수동 넘기기 버튼 */
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #FFB300;
+    color: #FFB300;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 20; /* 사진보다 위에 위치 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.slide-btn:hover {
+    background-color: #FFB300;
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.1); /* 살짝 커지는 효과 */
+}
+.prev-btn { left: -15px; } /* 왼쪽 바깥으로 살짝 튀어나오게 */
+.next-btn { right: -15px; }
+
+/* 개별 사진 디자인 */
+.gallery-img {
+    height: 300px;
+    width: auto;
+    object-fit: contain;
+    background-color: transparent;
+    transition: transform 0.3s ease;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+.gallery-img:hover {
+    transform: scale(1.15);
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* 🌟 사진 확대 모달창 디자인 */
+.modal {
+    display: none; /* 평소엔 보이지 않음 */
+    position: fixed;
+    z-index: 9999; /* 화면 제일 꼭대기로! */
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0,0,0,0.85); /* 검은색 반투명 */
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 15px;
+    border: 3px solid #FFB300;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    object-fit: contain;
+}
+.modal-close {
+    position: absolute;
+    top: 30px; right: 40px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.modal-close:hover { color: #FFB300; }
+
+/* ========================================= */
 /* 🌟공통 Footer */
 /* ========================================= */
 footer {
@@ -688,4 +1154,3 @@ footer {
     margin-top: auto;
 }
 footer p { margin: 5px 0; }
-
