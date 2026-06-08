@@ -37,32 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 🌟 2. 아카이빙 페이지 전용 기능 (새로 추가됨)
+    // 🌟 2. 아카이빙 갤러리 무한 스크롤 & 자동 복제 (방향 반대 적용!)
     // ==========================================
-
-    // [기능 A] 사진 확대 모달 (팝업창)
-    const modal = document.getElementById("image-modal");
-    const modalImg = document.getElementById("modal-img");
-    const closeBtn = document.querySelector(".modal-close");
-    const galleryImages = document.querySelectorAll(".gallery-img");
-
-    if(modal) {
-        // 사진을 클릭하면 원본 사이즈로 팝업!
-        galleryImages.forEach(img => {
-            img.addEventListener("click", function() {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-            });
-        });
-
-        // 닫기 버튼이나 여백을 클릭하면 닫힘
-        closeBtn.addEventListener("click", () => modal.style.display = "none");
-        window.addEventListener("click", (e) => {
-            if (e.target === modal) modal.style.display = "none";
-        });
-    }
-
-    // [기능 B] 갤러리 자동 스크롤 & 양옆 넘기기 버튼 컨트롤
     const rightPanels = document.querySelectorAll('.timeline-right');
 
     rightPanels.forEach(panel => {
@@ -71,20 +47,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = panel.querySelector('.prev-btn');
         const nextBtn = panel.querySelector('.next-btn');
 
-        if (!container || !track) return; // 요소가 없으면 건너뜀
+        if (!container || !track) return;
+
+        // 💡 HTML 수정 없이 JS가 원본 사진을 가져와 2번 더 복제해서 뒤에 붙입니다! (총 3세트)
+        const originalImages = Array.from(track.children);
+        for (let i = 0; i < 2; i++) {
+            originalImages.forEach(img => {
+                const clone = img.cloneNode(true);
+                track.appendChild(clone);
+            });
+        }
 
         let scrollInterval;
 
-        // 자동으로 부드럽게 흘러가는 함수
+        // 사진 3세트 중 가운데(1세트가 끝나는 지점)로 몰래 스크롤을 이동시켜 둡니다.
+        // 이렇게 해야 양옆 어디로 넘기든 빈 공간이 보이지 않습니다.
+        setTimeout(() => {
+            container.scrollLeft = track.scrollWidth / 3;
+        }, 100);
+
+        // 자동으로 스르륵 흘러가는 함수
         function startAutoScroll() {
             scrollInterval = setInterval(() => {
-                container.scrollLeft += 1; // 스크롤 속도
+                // 👇 스크롤을 '오른쪽'으로 이동시킵니다 = 화면상 사진은 '오른쪽에서 왼쪽'으로 흐름!
+                container.scrollLeft += 1;
 
-                // 사진들이 끝까지 가기 전에 처음으로 몰래 되돌려서 무한루프 느낌!
-                if (container.scrollLeft >= track.scrollWidth / 2) {
-                    container.scrollLeft = 0;
+                // 💡 스크롤이 2세트 끝(오른쪽 끝)에 닿으면, 아무도 모르게 다시 가운데로 순간이동!
+                if (container.scrollLeft >= (track.scrollWidth / 3) * 2) {
+                    container.scrollLeft = track.scrollWidth / 3;
                 }
-            }, 20);
+                // 만약 수동으로 왼쪽 끝까지 넘겼을 경우를 대비한 안전장치
+                else if (container.scrollLeft <= 0) {
+                    container.scrollLeft = track.scrollWidth / 3;
+                }
+            }, 20); // 20은 속도 (숫자가 작을수록 빠름)
         }
 
         function stopAutoScroll() {
@@ -95,25 +91,48 @@ document.addEventListener('DOMContentLoaded', () => {
         container.addEventListener('mouseenter', stopAutoScroll);
         container.addEventListener('mouseleave', startAutoScroll);
 
-        // 버튼을 누를 때 수동으로 스크롤 넘기기
-        if(prevBtn) {
+        // 버튼 수동 조작
+        if (prevBtn) {
             prevBtn.addEventListener('mouseenter', stopAutoScroll);
             prevBtn.addEventListener('mouseleave', startAutoScroll);
             prevBtn.addEventListener('click', () => {
-                container.scrollBy({ left: -350, behavior: 'smooth' }); // 왼쪽으로 350px 쓱 넘김
+                container.scrollBy({left: -350, behavior: 'smooth'});
             });
         }
 
-        if(nextBtn) {
+        if (nextBtn) {
             nextBtn.addEventListener('mouseenter', stopAutoScroll);
             nextBtn.addEventListener('mouseleave', startAutoScroll);
             nextBtn.addEventListener('click', () => {
-                container.scrollBy({ left: 350, behavior: 'smooth' }); // 오른쪽으로 350px 쓱 넘김
+                container.scrollBy({left: 350, behavior: 'smooth'});
             });
         }
 
-        // 페이지 진입 시 자동으로 출발!
+        // 출발!
         startAutoScroll();
     });
+
+    // ==========================================
+    // 🌟 3. 사진 확대 모달 (팝업창)
+    // ==========================================
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-img");
+    const closeBtn = document.querySelector(".modal-close");
+    const galleryImages = document.querySelectorAll(".gallery-img");
+
+    if (modal) {
+        galleryImages.forEach(img => {
+            img.addEventListener("click", function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            });
+        });
+
+        // 닫기 버튼이나 바깥쪽 여백 클릭 시 닫힘
+        closeBtn.addEventListener("click", () => modal.style.display = "none");
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) modal.style.display = "none";
+        });
+    }
 
 });
