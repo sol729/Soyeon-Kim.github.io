@@ -135,4 +135,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================
+    // 🌟 4. 아카이빙 탭 버튼 (ACTIVITY / SNS 전환)
+    // ==========================================
+    const btnActivity = document.getElementById('btn-activity');
+    const btnSns = document.getElementById('btn-sns');
+    const secActivity = document.getElementById('section-activity');
+    const secSns = document.getElementById('section-sns');
+
+    if (btnActivity && btnSns && secActivity && secSns) {
+        btnActivity.addEventListener('click', () => {
+            // 버튼 디자인 활성화/비활성화
+            btnActivity.classList.add('active');
+            btnSns.classList.remove('active');
+            // 섹션 보여주기/숨기기
+            secActivity.style.display = 'block';
+            secSns.style.display = 'none';
+        });
+
+        btnSns.addEventListener('click', () => {
+            btnSns.classList.add('active');
+            btnActivity.classList.remove('active');
+            secSns.style.display = 'block';
+            secActivity.style.display = 'none';
+        });
+    }
+
 });
