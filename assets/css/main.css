@@ -204,7 +204,8 @@ html[data-lang="en"] body [lang="ko"] { display: none !important; }
     border: 1px solid var(--line); background: var(--surface);
     transition: transform .2s var(--ease), background-color .2s, border-color .2s, color .2s;
 }
-.btn:hover { border-color: var(--ink); }
+.btn:hover { transform: translateY(-2px); border-color: var(--ink); }
+.btn:hover .arrow { transform: translateX(3px); }
 .btn--primary { background: var(--ink); border-color: var(--ink); color: #fff; }
 .btn--primary:hover { background: var(--accent); border-color: var(--accent); }
 .btn .arrow { transition: transform .2s var(--ease); }
@@ -306,7 +307,7 @@ html[data-lang="en"] body [lang="ko"] { display: none !important; }
     padding: 28px; min-height: 340px;
     transition: transform .3s var(--ease), box-shadow .3s, border-color .3s;
 }
-.work-card:hover { box-shadow: var(--shadow); border-color: transparent; }
+.work-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
 .work-card--plain { min-height: 0; }
 .work-card .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .work-card h3 { margin-top: 24px; font-size: 22px; line-height: 1.4; letter-spacing: -0.02em; }
@@ -322,7 +323,7 @@ html[data-lang="en"] body [lang="ko"] { display: none !important; }
     display: grid; place-items: center; background: var(--surface-2);
     transition: background-color .2s, color .2s, transform .3s var(--ease);
 }
-.work-card:hover .go { background: var(--accent); color: #fff; }
+.work-card:hover .go { background: var(--accent); color: #fff; transform: rotate(-45deg); }
 
 /* Home — career strip */
 .career-strip {
@@ -409,9 +410,9 @@ html[data-lang="en"] body [lang="ko"] { display: none !important; }
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
     padding: 20px 22px; text-align: left; width: 100%;
     font-weight: 600; font-size: 15px;
-    transition: border-color .2s, color .2s;
+    transition: transform .2s var(--ease), border-color .2s, color .2s;
 }
-.link-card:hover { border-color: var(--accent); color: var(--accent); }
+.link-card:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
 .link-card .arrow { color: var(--ink-3); }
 
 /* Skills — tool groups */
@@ -486,4 +487,17 @@ html[data-lang="en"] body [lang="ko"] { display: none !important; }
 @media (max-width: 420px) {
     .tool-list, .skill-group--wide .tool-list { grid-template-columns: 1fr; }
     .lang-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+}
+
+/* ---------- Motion ---------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal[data-delay="1"] { transition-delay: .08s; }
+.reveal[data-delay="2"] { transition-delay: .16s; }
+.reveal[data-delay="3"] { transition-delay: .24s; }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    .reveal { opacity: 1; transform: none; }
 }
