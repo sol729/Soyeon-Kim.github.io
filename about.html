@@ -1,192 +1,203 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-lang="ko" data-title-ko="소개 | 김소연 포트폴리오" data-title-en="About | Soyeon Kim">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280">
-    <title>ABOUT ME | 김소연 포트폴리오</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>소개 | 김소연 포트폴리오</title>
+    <meta name="description" content="끊임없이 배우고 직접 부딪혀 보는 마케터 김소연을 소개합니다.">
+    <script>
+        (function () {
+            var l = (location.search.match(/[?&]lang=(ko|en)/) || [])[1]; if (!l) try { l = localStorage.getItem('lang'); } catch (e) {}
+            if (l !== 'ko' && l !== 'en') l = /^ko/i.test(navigator.language || 'ko') ? 'ko' : 'en';
+            document.documentElement.dataset.lang = l; document.documentElement.lang = l;
+        })();
+    </script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/main.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+<div id="site-header"></div>
 
-<nav class="top-nav-bar">
-    <a href="index.html" class="nav-home-btn">💛</a>
+<main id="main">
 
-    <div class="nav-container">
-        <a href="about.html" class="nav-btn">
-            <img src="image/A.png" alt="A"><img src="image/B.png" alt="B"><img src="image/O.png" alt="O"><img
-                src="image/U.png" alt="U"><img src="image/T.png" alt="T">
-        </a>
-        <a href="skills.html" class="nav-btn">
-            <img src="image/S.png" alt="S"><img src="image/K.png" alt="K"><img src="image/I.png" alt="I"><img
-                src="image/L.png" alt="L"><img src="image/L.png" alt="L"><img src="image/S.png" alt="S">
-        </a>
-        <a href="career.html" class="nav-btn">
-            <img src="image/C.png" alt="C"><img src="image/A.png" alt="A"><img src="image/R.png" alt="R"><img
-                src="image/E.png" alt="E"><img src="image/E.png" alt="E"><img src="image/R.png" alt="R">
-        </a>
-        <a href="archiving.html" class="nav-btn">
-            <img src="image/A.png" alt="A"><img src="image/R.png" alt="R"><img src="image/C.png" alt="C"><img
-                src="image/H.png" alt="H"><img src="image/I.png" alt="I"><img src="image/V.png" alt="V"><img
-                src="image/I.png" alt="I"><img src="image/N.png" alt="N"><img src="image/G.png" alt="G">
-        </a>
-    </div>
-
-    <a href="menu.html" class="nav-menu-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-    </a>
-</nav>
-
-<div class="scrolly-container about-track">
-    <div class="sticky-wrapper">
-
-        <div class="scroll-prompt">
-            <p>Please scroll down</p>
-            <span class="arrow">↓</span>
-        </div>
-
-        <div class="about-name-group">
-            <div class="about-name-row about-scrolly-left">
-                <img src="image/K.png" alt="K">
-                <img src="image/I.png" alt="I">
-                <img src="image/M.png" alt="M">
+    <!-- Intro -->
+    <section class="page-hero page-hero--split">
+        <div class="container">
+            <div>
+                <p class="eyebrow">About me</p>
+                <h1 class="h-display">
+                    <span lang="ko">끊임없이 배우고,<br>직접 부딪혀 보는<br>마케터 김소연입니다.</span>
+                    <span lang="en">Always learning,<br>always trying it<br><span class="serif">first-hand.</span></span>
+                </h1>
+                <p class="lead">
+                    <span lang="ko">관광경영을 전공하고 여행사 MD로 상품을 직접 기획하고 팔았어요. 그 과정에서 좋은 상품도 결국 <strong>누구에게, 어떤 메시지로 전하느냐</strong>가 성과를 가른다는 걸 배웠고, 지금은 콘텐츠와 데이터로 그 답을 찾는 마케터로 성장하고 있어요.</span>
+                    <span lang="en">I studied tourism management and spent two years planning and selling travel packages as a product MD. That taught me that even a great product lives or dies by <strong>who hears about it and how</strong> — so now I’m growing as a marketer who finds that answer with content and data.</span>
+                </p>
             </div>
-            <div class="about-name-row about-scrolly-right">
-                <img src="image/S.png" alt="S">
-                <img src="image/O.png" alt="O">
-                <img src="image/Y.png" alt="Y">
-                <img src="image/E.png" alt="E">
-                <img src="image/O.png" alt="O">
-                <img src="image/N.png" alt="N">
+            <div class="portrait">
+                <img src="assets/img/profile-smile.jpg" width="760" height="1140" alt="김소연 프로필 사진">
             </div>
         </div>
+    </section>
 
-        <div class="about-bg-wrapper">
-            <img src="image/흰배경.png" alt="내용 배경" class="about-bg-img">
+    <!-- Motto -->
+    <section class="container">
+        <div class="quote">
+            <blockquote>
+                <span lang="ko">“우물 안 개구리가 되지 말자,<br>내가 아는 것이 전부가 아니다.”</span>
+                <span lang="en">“Don’t be a frog in a well —<br>what I know isn’t everything.”</span>
+            </blockquote>
+            <p>
+                <span lang="ko">항상 되새기는 문장이에요. 그래서 익숙한 일에 머무르기보다 새로운 환경과 도구에 먼저 뛰어들었고, 매번의 도전이 다음 성장의 자극제가 되어 주었어요.</span>
+                <span lang="en">A line I keep coming back to. Instead of staying where it’s comfortable, I jump into new environments and tools first — and every new challenge has pushed me to the next step.</span>
+            </p>
+        </div>
+    </section>
 
-            <div class="about-inner-content">
-                <div class="about-top-area">
-
-                    <div class="about-profile-section">
-                        <div class="flip-box about-flip">
-                            <div class="flip-box-inner">
-                                <div class="flip-box-front">
-                                    <img src="image/찰흙소연.png" alt="찰흙 소연">
-                                </div>
-                                <div class="flip-box-back">
-                                    <img src="image/소연2.png" alt="실제 소연">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="black-name-group">
-                            <div class="black-word">
-                                <img src="image/K.png" alt="K"><img src="image/I.png" alt="I"><img src="image/M.png"
-                                                                                                   alt="M">
-                            </div>
-                            <span style="display: inline-block; width: 15px;"></span>
-                            <div class="black-word">
-                                <img src="image/S.png" alt="S"><img src="image/O.png" alt="O"><img src="image/Y.png"
-                                                                                                   alt="Y"><img
-                                    src="image/E.png" alt="E"><img src="image/O.png" alt="O"><img src="image/N.png"
-                                                                                                  alt="N">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="about-links-section">
-                        <a href="#" class="about-link-box text-link" onclick="copyEmail(event)">
-                            ▶ E-mail 복사하기
-                        </a>
-                        <a href="https://www.linkedin.com/in/soyeon-kim-735996394" target="_blank"
-                           class="about-link-box text-link">
-                            ▶ LinkedIn 바로가기
-                        </a>
-                        <a href="https://drive.google.com/drive/folders/12Eg0Wg3hJxGtJngfE_HioBsgVnFIuzoo?usp=sharing"
-                           target="_blank" class="about-link-box text-link">
-                            ▶ PPT Portfolio 확인하기
-                        </a>
-                        <a href="https://drive.google.com/drive/folders/12_uu06jVCLRqLd8jphip2cSTAtKFF7N7?usp=sharing"
-                           target="_blank" class="about-link-box text-link">
-                            ▶ Resume 확인하기
-                        </a>
-                        <a href="https://github.com/sol729" target="_blank" class="about-link-box text-link">
-                            ▶ GitHub 바로가기
-                        </a>
-                    </div>
-
-                </div>
-
-                <div class="about-bottom-text">
-                    <p>안녕하세요. 끊임없는 배움을 추구하는 마케터 김소연입니다.</p>
-                    <p>" 우물 안 개구리가 되지 말자, 내가 아는 것이 전부가 아니다. "</p>
-                    <p>항상 되새기고 또 되새기는 문장입니다.</p>
-                    <p>그렇게 다양한 경력과 경험을 쌓았으며, 매번 새로운 계획과 도전은 큰 자극제가 되어 주었습니다.</p>
-                    <p>앞으로 함께 발전해 나갈 기회를 만들겠습니다.</p>
-                    <p style="margin-top: 25px;">
-                        <span style="color: #FFB300; font-size: 30px;">★</span> 새로운 커리어 기회와 커피챗은 언제나 환영합니다! <span
-                            style="color: #FFB300; font-size: 30px;">★</span>
+    <!-- How I work -->
+    <section class="section">
+        <div class="container">
+            <div class="sub-head">
+                <p class="eyebrow">How I work</p>
+                <h2 class="h-section"><span lang="ko">이렇게 일해요</span><span lang="en">How I get things done</span></h2>
+            </div>
+            <div class="work-grid">
+                <article class="card work-card work-card--plain episode">
+                    <p class="episode-value"><span lang="ko">160만 원</span><span lang="en">₩1.6M</span></p>
+                    <h3><span lang="ko">대기 시간도 매출로 바꿔요</span><span lang="en">Turning wait time into revenue</span></h3>
+                    <p>
+                        <span lang="ko">동아리 축제 부스에서 체험 상품에 먹거리를 함께 구성해, 줄 서는 시간을 추가 매출이 나는 시간으로 바꿨어요. 순수익 160만 원을 남겼어요.</span>
+                        <span lang="en">At our club’s festival booth I bundled snacks with the hands-on activity, so time spent in line became extra sales — netting ₩1.6M in profit.</span>
                     </p>
-                </div>
-
+                </article>
+                <article class="card work-card work-card--plain episode">
+                    <p class="episode-value">−50%</p>
+                    <h3><span lang="ko">노하우는 문서로 남겨요</span><span lang="en">Writing know-how down</span></h3>
+                    <p>
+                        <span lang="ko">자주 받는 질문과 예외 상황, 대응 방법을 엑셀 매뉴얼로 정리해 신규 입사자 온보딩 기간을 약 50% 줄였어요. 동아리에서도 운영 매뉴얼로 인원을 10배 늘렸어요.</span>
+                        <span lang="en">I turned FAQs, edge cases and responses into an Excel playbook that cut new-hire onboarding time by about 50%. A similar manual helped my club grow tenfold.</span>
+                    </p>
+                </article>
+                <article class="card work-card work-card--plain episode">
+                    <p class="episode-value">25%</p>
+                    <h3><span lang="ko">한 번 더 데이터를 봐요</span><span lang="en">Taking a second look at the data</span></h3>
+                    <p>
+                        <span lang="ko">홈쇼핑 방송 후 초기 모객이 부진하면 관심 고객을 다시 분류하고 메시지를 새로 기획해 보냈어요. 가예약 고객의 예약 전환율 25%를 달성했어요.</span>
+                        <span lang="en">When bookings were slow after a home-shopping broadcast, I re-segmented interested leads and rewrote the messaging — reaching a 25% lead-to-booking conversion rate.</span>
+                    </p>
+                </article>
             </div>
         </div>
+    </section>
 
-    </div>
-</div>
+    <!-- Journey -->
+    <section class="section">
+        <div class="container">
+            <div class="sub-head">
+                <p class="eyebrow">Journey</p>
+                <h2 class="h-section"><span lang="ko">지금까지의 여정</span><span lang="en">The journey so far</span></h2>
+            </div>
+            <ol class="timeline">
+                <li>
+                    <time>2019 – 2023</time>
+                    <div>
+                        <h3><span lang="ko">신한대학교 글로벌관광경영학과</span><span lang="en">B.A. Global Tourism Management, Shinhan University</span></h3>
+                        <p>
+                            <span lang="ko">관광상품기획동아리 창립·회장, 브랜드 서포터즈 활동, 관광 상품·콘텐츠 공모전 3회 수상</span>
+                            <span lang="en">Founded and led a tour-product planning club, joined brand ambassador programs, won 3 tourism product &amp; content competitions</span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <time>2023 – 2025</time>
+                    <div>
+                        <h3><span lang="ko">NHN여행박사 유럽팀 MD</span><span lang="en">Product MD, Europe Team at NHN Doctortour</span></h3>
+                        <p>
+                            <span lang="ko">이탈리아·스위스 일주 패키지 기획과 판매, CRM을 맡아 담당 상품 매출 전년 동기 대비 184% 달성</span>
+                            <span lang="en">Planned, sold and ran CRM for Italy &amp; Switzerland packages — 184% revenue vs. the same period the year before</span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <time>2025 – 2026</time>
+                    <div>
+                        <h3><span lang="ko">스마트 모빌리티 DX Academy</span><span lang="en">Smart Mobility DX Academy</span></h3>
+                        <p>
+                            <span lang="ko">SQL·Power BI 데이터 분석과 Figma 서비스 기획을 배우고 최종 경쟁 PT 1위</span>
+                            <span lang="en">Learned SQL, Power BI and Figma service design; team took 1st place in the final pitch</span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <time>2026</time>
+                    <div>
+                        <h3><span lang="ko">경기청년 기후특사단 · 그로스쿨 인턴십</span><span lang="en">Gyeonggi Youth Climate Envoys · Growschool Internship</span></h3>
+                        <p>
+                            <span lang="ko">몽골 해외봉사 홍보부 팀장으로 SNS 반응 1위, 생성형 AI 기반 콘텐츠 자동화와 Meta 광고 운영</span>
+                            <span lang="en">Led PR for a volunteer mission to Mongolia (#1 in social engagement), then built AI content automation and ran Meta ads</span>
+                        </p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
 
-<footer>
-    <p>7syeonk29@gmail.com</p>
-    <p>&copy; 2026. KIM SO YEON. All rights reserved.</p>
-</footer>
+    <!-- Education & contact -->
+    <section class="section">
+        <div class="container">
+            <div class="sub-head">
+                <p class="eyebrow">Education</p>
+                <h2 class="h-section"><span lang="ko">학력</span><span lang="en">Education</span></h2>
+            </div>
+            <div class="info-grid">
+                <div class="card info-card">
+                    <p class="label">2019.03 – 2023.02</p>
+                    <h3><span lang="ko">신한대학교 글로벌관광경영학과</span><span lang="en">Shinhan University</span></h3>
+                    <p><span lang="ko">졸업 · 학점 3.95 / 4.5</span><span lang="en">B.A. Global Tourism Management · GPA 3.95 / 4.5</span></p>
+                </div>
+                <div class="card info-card">
+                    <p class="label">2016.03 – 2019.02</p>
+                    <h3><span lang="ko">의정부여자고등학교</span><span lang="en">Uijeongbu Girls’ High School</span></h3>
+                    <p><span lang="ko">졸업</span><span lang="en">Graduated</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        const vh = window.innerHeight;
+    <section class="section">
+        <div class="container">
+            <div class="sub-head">
+                <p class="eyebrow">Links</p>
+                <h2 class="h-section"><span lang="ko">더 알아보기</span><span lang="en">Find out more</span></h2>
+            </div>
+            <div class="link-list">
+                <button type="button" class="card link-card" data-copy-email>
+                    <span><span lang="ko">이메일 복사</span><span lang="en">Copy e-mail</span></span><span class="arrow" aria-hidden="true">⧉</span>
+                </button>
+                <a href="https://www.linkedin.com/in/soyeon-kim-735996394" target="_blank" rel="noopener" class="card link-card">
+                    LinkedIn<span class="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/12_uu06jVCLRqLd8jphip2cSTAtKFF7N7?usp=sharing" target="_blank" rel="noopener" class="card link-card">
+                    <span><span lang="ko">이력서</span><span lang="en">Resume</span></span><span class="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/12Eg0Wg3hJxGtJngfE_HioBsgVnFIuzoo?usp=sharing" target="_blank" rel="noopener" class="card link-card">
+                    <span><span lang="ko">PPT 포트폴리오</span><span lang="en">PDF Portfolio</span></span><span class="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://github.com/sol729" target="_blank" rel="noopener" class="card link-card">
+                    GitHub<span class="arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-        const scrollPrompt = document.querySelector('.scroll-prompt');
-        if (scrollPrompt) {
-            if (scrollY > 20) {
-                scrollPrompt.classList.add('hide');
-            } else {
-                scrollPrompt.classList.remove('hide');
-            }
-        }
+</main>
 
-        const nameLeft = document.querySelector('.about-scrolly-left');
-        const nameRight = document.querySelector('.about-scrolly-right');
-        const whiteBg = document.querySelector('.about-bg-wrapper');
-
-        if (nameLeft && nameRight) {
-            if (scrollY > 10) {
-                nameLeft.classList.add('show');
-                nameRight.classList.add('show');
-            } else {
-                nameLeft.classList.remove('show');
-                nameRight.classList.remove('show');
-            }
-        }
-
-        if (whiteBg) {
-            if (scrollY > vh * 0.6) {
-                whiteBg.classList.add('show');
-            } else {
-                whiteBg.classList.remove('show');
-            }
-        }
-    });
-
-    // 🌟 이메일 복사 스크립트 (줄바꿈과 하트 추가 완료!)
-    function copyEmail(event) {
-        event.preventDefault();
-        navigator.clipboard.writeText('7syeonk29@gmail.com').then(() => {
-            // \n은 줄바꿈입니다! 노란 하트 💛를 맨 뒤에 넣었어요.
-            alert('소연님의 이메일 주소(7syeonk29@gmail.com)가 복사되었습니다! 💌\n\n좋은 소식을 기다릴게요 💛');
-        });
-    }
-
-    window.dispatchEvent(new Event('scroll'));
-</script>
+<div id="site-footer"></div>
 </body>
 </html>
