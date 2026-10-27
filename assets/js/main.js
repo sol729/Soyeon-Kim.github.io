@@ -2,7 +2,7 @@
    Soyeon Kim Portfolio — shared behavior
    - Renders the common header/footer into #site-header / #site-footer
    - KO/EN toggle (copy lives inline as lang="ko" / lang="en" siblings)
-   - Mobile menu, scroll reveal, e-mail copy
+   - Mobile menu, e-mail copy
    ========================================================= */
 
 const EMAIL = '7syeonk29@gmail.com';
@@ -158,34 +158,7 @@ function initEmailCopy() {
     });
 }
 
-// ---------- Scroll reveal ----------
-function initReveal() {
-    const items = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) {
-        items.forEach(el => el.classList.add('is-visible'));
-        return;
-    }
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                io.unobserve(entry.target);
-            }
-        });
-    }, {rootMargin: '0px 0px -8% 0px'});
-    items.forEach(el => io.observe(el));
-}
-
-// ---------- Portrait (tap to flip on touch devices) ----------
-function initPortrait() {
-    document.querySelectorAll('.portrait').forEach(el => {
-        el.addEventListener('click', () => el.classList.toggle('is-flipped'));
-    });
-}
-
 renderHeader();
 renderFooter();
 initLang();
 initEmailCopy();
-initReveal();
-initPortrait();
