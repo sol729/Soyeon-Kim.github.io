@@ -1,136 +1,195 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-lang="ko" data-title-ko="경력 | 김소연 포트폴리오" data-title-en="Career | Soyeon Kim">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280">
-    <title>CAREER | 김소연 포트폴리오</title>
-    <link rel="stylesheet" href="style.css">
-    <nav class="top-nav-bar">
-        <a href="index.html" class="nav-home-btn">💛</a>
-
-        <div class="nav-container">
-            <a href="about.html" class="nav-btn">
-                <img src="image/A.png" alt="A"><img src="image/B.png" alt="B"><img src="image/O.png" alt="O"><img
-                    src="image/U.png" alt="U"><img src="image/T.png" alt="T">
-            </a>
-            <a href="skills.html" class="nav-btn">
-                <img src="image/S.png" alt="S"><img src="image/K.png" alt="K"><img src="image/I.png" alt="I"><img
-                    src="image/L.png" alt="L"><img src="image/L.png" alt="L"><img src="image/S.png" alt="S">
-            </a>
-            <a href="career.html" class="nav-btn">
-                <img src="image/C.png" alt="C"><img src="image/A.png" alt="A"><img src="image/R.png" alt="R"><img
-                    src="image/E.png" alt="E"><img src="image/E.png" alt="E"><img src="image/R.png" alt="R">
-            </a>
-            <a href="archiving.html" class="nav-btn">
-                <img src="image/A.png" alt="A"><img src="image/R.png" alt="R"><img src="image/C.png" alt="C"><img
-                    src="image/H.png" alt="H"><img src="image/I.png" alt="I"><img src="image/V.png" alt="V"><img
-                    src="image/I.png" alt="I"><img src="image/N.png" alt="N"><img src="image/G.png" alt="G">
-            </a>
-        </div>
-
-        <a href="menu.html" class="nav-menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </a>
-    </nav>
-
-    <div class="scrolly-container career-track">
-        <div class="sticky-wrapper">
-
-            <div class="career-header">
-                <div class="career-title-img">
-                    <img src="image/C.png" alt="C"><img src="image/A.png" alt="A"><img src="image/R.png" alt="R"><img
-                        src="image/E.png" alt="E"><img src="image/E.png" alt="E"><img src="image/R.png" alt="R">
-                </div>
-            </div>
-
-            <div class="career-stack-area">
-
-                <div class="career-card first-card">
-                    <img src="image/흰배경.png" alt="배경" class="career-bg-img">
-                    <div class="career-inner-content">
-                        <div class="career-profile-row">
-                            <div class="career-icon">
-                                <img src="program/여행박사.png" alt="NHN여행박사">
-                            </div>
-                            <div class="career-company-info">
-                                <h2 class="company-name">NHN여행박사 (NHN Doctortour)</h2>
-                                <p class="company-dept">유럽팀 사원 <span
-                                        class="career-date">| 2023.03.13 ~ 2025.02.20</span>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="career-details">
-                            <table class="career-table">
-                                <tr>
-                                    <th>담당 지역 및 상품</th>
-                                    <td>이탈리아, 스위스, 베네룩스 패키지 MD & Sales</td>
-                                </tr>
-                                <tr>
-                                    <th>주요 업무</th>
-                                    <td>
-                                        시장 리서치 기반 상품 기획<br>
-                                        데이터 중심의 세일즈 및 수익 관리<br>
-                                        채널 프로모션(CRM 및 홈쇼핑/이커머스)<br>
-                                        글로벌 파트너십 조율
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="career-card second-card">
-                    <img src="image/흰배경.png" alt="배경" class="career-bg-img">
-                    <div class="career-inner-content content-center">
-                        <div class="career-closing-text">
-                            <p>새로운 도전과 성장의 여정,</p>
-                            <p>앞으로 함께 만들어갈 빛나는 미래를 기대합니다. 💛</p>
-                        </div>
-
-                        <div class="career-button-group">
-                            <a href="#" class="career-link-btn" onclick="copyEmail(event)">
-                                ▶ E-mail 복사하기
-                            </a>
-                            <a href="about.html" class="career-link-btn">
-                                ▶ Profile 보러가기
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <p>7syeonk29@gmail.com</p>
-        <p>&copy; 2026. KIM SO YEON. All rights reserved.</p>
-    </footer>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>경력 | 김소연 포트폴리오</title>
+    <meta name="description" content="NHN여행박사 유럽팀 MD로 이탈리아·스위스 패키지의 기획, 판매, CRM을 담당한 경력.">
     <script>
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const vh = window.innerHeight;
-
-            const secondCard = document.querySelector('.second-card');
-
-            // 스크롤을 절반 이상 내리면 2층 카드가 슬라이드 업 되며 펼쳐집니다
-            if (scrollY > vh * 0.5) {
-                secondCard.classList.add('unfold');
-            } else {
-                secondCard.classList.remove('unfold');
-            }
-        });
-
-        // 이메일 복사 스크립트
-        function copyEmail(event) {
-            event.preventDefault();
-            navigator.clipboard.writeText('7syeonk29@gmail.com').then(() => {
-                alert('소연님의 이메일 주소(7syeonk29@gmail.com)가 복사되었습니다! 💌\n\n좋은 소식을 기다릴게요 💛');
-            });
-        }
-
-        window.dispatchEvent(new Event('scroll'));
+        (function () {
+            var l = (location.search.match(/[?&]lang=(ko|en)/) || [])[1]; if (!l) try { l = localStorage.getItem('lang'); } catch (e) {}
+            if (l !== 'ko' && l !== 'en') l = /^ko/i.test(navigator.language || 'ko') ? 'ko' : 'en';
+            document.documentElement.dataset.lang = l; document.documentElement.lang = l;
+        })();
     </script>
-    </body>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+    <section class="page-hero">
+        <div class="container">
+            <p class="eyebrow">Career</p>
+            <h1 class="h-display reveal">
+                <span lang="ko">상품을 기획하고,<br>파는 일까지 직접 했어요</span>
+                <span lang="en">I planned products —<br>and <span class="serif">sold</span> them, too</span>
+            </h1>
+            <p class="lead reveal" data-delay="1">
+                <span lang="ko">항공, 현지 숙박, 일정을 하나의 여행 상품으로 구성하고, 상품 기획부터 판매 채널 운영, 고객 관리, 협력사 원가 관리까지 상품 운영 전반을 담당했어요.</span>
+                <span lang="en">I bundled flights, hotels and itineraries into travel packages, and owned everything around them — planning, sales channels, customer care and partner cost management.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Company -->
+    <section class="container">
+        <div class="card company-card reveal">
+            <div class="company-logo"><img src="assets/img/icons/nhn-doctortour.png" alt="NHN여행박사 로고"></div>
+            <div>
+                <h2><span lang="ko">(주)엔에이치엔여행박사 · 유럽팀 MD</span><span lang="en">NHN Doctortour · Product MD, Europe Team</span></h2>
+                <p>
+                    <span lang="ko">2023.03 – 2025.02 (약 2년) · 이탈리아, 스위스 일주 패키지 MD &amp; Sales</span>
+                    <span lang="en">Mar 2023 – Feb 2025 (about 2 years) · Italy &amp; Switzerland tour packages, MD &amp; Sales</span>
+                </p>
+            </div>
+            <div class="chip-row">
+                <span class="chip"><span lang="ko">정규직</span><span lang="en">Full-time</span></span>
+                <span class="chip"><span lang="ko">사원</span><span lang="en">Associate</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section">
+        <div class="container">
+            <div class="sub-head">
+                <p class="eyebrow">Results</p>
+                <h2 class="h-section"><span lang="ko">주요 성과</span><span lang="en">Key results</span></h2>
+            </div>
+            <div class="metrics">
+                <div class="metric reveal">
+                    <p class="metric-value">184<small>%</small></p>
+                    <p class="metric-label"><span lang="ko">담당 상품 매출<br>전년 동기 대비</span><span lang="en">Product revenue<br>vs. same period last year</span></p>
+                </div>
+                <div class="metric reveal" data-delay="1">
+                    <p class="metric-value"><span lang="ko">매주</span><span lang="en">Weekly</span></p>
+                    <p class="metric-label"><span lang="ko">출발 횟수 월 1~2회에서<br>성수기 거의 매주 출발로</span><span lang="en">Departures grew from 1–2 a month<br>to almost every week in peak season</span></p>
+                </div>
+                <div class="metric reveal" data-delay="2">
+                    <p class="metric-value">25<small>%</small></p>
+                    <p class="metric-label"><span lang="ko">홈쇼핑 가예약 고객<br>예약 전환율</span><span lang="en">Home-shopping lead<br>to booking conversion</span></p>
+                    <p class="metric-src"><span lang="ko">개인별 배정 인원 기준</span><span lang="en">Based on leads assigned to me</span></p>
+                </div>
+                <div class="metric reveal" data-delay="3">
+                    <p class="metric-value">−50<small>%</small></p>
+                    <p class="metric-label"><span lang="ko">신규 입사자<br>온보딩 기간</span><span lang="en">New-hire<br>onboarding time</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Duties -->
+    <section class="section">
+        <div class="container">
+            <div class="sub-head">
+                <p class="eyebrow">What I did</p>
+                <h2 class="h-section"><span lang="ko">주요 업무</span><span lang="en">Responsibilities</span></h2>
+            </div>
+            <div class="duty-grid">
+                <article class="card duty reveal">
+                    <p class="num">01</p>
+                    <h3><span lang="ko">상품 기획 및 시즌 운영</span><span lang="en">Product planning &amp; seasons</span></h3>
+                    <ul class="bullets">
+                        <li><span lang="ko">경쟁사 상품의 가격, 일정, 소구점을 엑셀로 비교 분석해 상품 구성과 판매 포인트 정리</span><span lang="en">Benchmarked competitors’ prices, itineraries and selling points in Excel to shape packages and messaging</span></li>
+                        <li><span lang="ko">성수기와 비수기에 따른 출발 일정과 모객 목표 관리</span><span lang="en">Managed departure schedules and booking targets across peak and off-peak seasons</span></li>
+                        <li><span lang="ko">상담 문의와 판매 추이를 바탕으로 상품 타이틀과 상세페이지 카피 개선</span><span lang="en">Rewrote product titles and detail-page copy based on inquiries and sales trends</span></li>
+                    </ul>
+                </article>
+                <article class="card duty reveal" data-delay="1">
+                    <p class="num">02</p>
+                    <h3><span lang="ko">판매 채널 및 프로모션</span><span lang="en">Sales channels &amp; promotions</span></h3>
+                    <ul class="bullets">
+                        <li><span lang="ko">자사 홈페이지, 이커머스, 홈쇼핑 등 채널별 고객 특성에 맞춘 판매 메시지와 프로모션 운영</span><span lang="en">Tailored messaging and promotions to each channel — own website, e-commerce and TV home shopping</span></li>
+                        <li><span lang="ko">경쟁사 홈쇼핑 상품을 분석해 방송 제안서를 작성하고, 홈쇼핑 론칭 및 라이브커머스 판매 진행</span><span lang="en">Analyzed rival home-shopping offers, wrote broadcast proposals, and launched home-shopping and live-commerce sales</span></li>
+                        <li><span lang="ko">유관 부서와 협업해 상품 홍보 콘텐츠 검토</span><span lang="en">Reviewed promotional content with partner teams</span></li>
+                    </ul>
+                </article>
+                <article class="card duty reveal" data-delay="2">
+                    <p class="num">03</p>
+                    <h3><span lang="ko">고객 관리 및 CRM</span><span lang="en">Customer care &amp; CRM</span></h3>
+                    <ul class="bullets">
+                        <li><span lang="ko">시스템 조건 설정으로 고객군을 나누고, 고객군별 SMS·MMS 문구를 기획해 발송</span><span lang="en">Segmented customers with system filters and wrote SMS/MMS campaigns for each segment</span></li>
+                        <li><span lang="ko">고객 상담과 예약 관리, 출발 전후 고객 문의 대응</span><span lang="en">Handled consultations, bookings and pre/post-trip inquiries</span></li>
+                        <li><span lang="ko">결항 등 돌발 상황에서 고객과 현지 관계자 사이 커뮤니케이션 및 대안 마련</span><span lang="en">Coordinated customers and local partners during disruptions such as flight cancellations</span></li>
+                    </ul>
+                </article>
+                <article class="card duty reveal">
+                    <p class="num">04</p>
+                    <h3><span lang="ko">실적 관리 및 판매 활성화</span><span lang="en">Sales performance</span></h3>
+                    <ul class="bullets">
+                        <li><span lang="ko">모객 현황과 상담 이력을 확인하며 목표 대비 판매 실적 관리</span><span lang="en">Tracked bookings and consultation history against targets</span></li>
+                        <li><span lang="ko">홈쇼핑 방송 후 초기 모객이 부진하면 관심 고객을 다시 분류해 메시지 재기획 및 발송</span><span lang="en">When post-broadcast bookings lagged, re-segmented interested leads and re-sent new messaging</span></li>
+                        <li><span lang="ko">출발이 어려운 상품의 예약 고객에게 조건이 맞는 팀 내 다른 출발 상품을 제안해 예약 전환</span><span lang="en">Moved customers on at-risk departures to matching alternatives within the team</span></li>
+                    </ul>
+                </article>
+                <article class="card duty reveal" data-delay="1">
+                    <p class="num">05</p>
+                    <h3><span lang="ko">B2B 협업 및 수익성 관리</span><span lang="en">B2B partners &amp; margins</span></h3>
+                    <ul class="bullets">
+                        <li><span lang="ko">현지 협력사와 분기별 원가 및 운영 조건 조율</span><span lang="en">Negotiated quarterly costs and operating terms with local partners</span></li>
+                        <li><span lang="ko">관광청 오프라인 행사 참여</span><span lang="en">Attended offline events hosted by national tourism boards</span></li>
+                    </ul>
+                </article>
+                <article class="card duty reveal" data-delay="2">
+                    <p class="num">06</p>
+                    <h3><span lang="ko">현장 점검 및 업무 개선</span><span lang="en">Field checks &amp; process</span></h3>
+                    <ul class="bullets">
+                        <li><span lang="ko">스페인·포르투갈 현지 출장(2023.11 – 12)에서 일정, 동선, 고객 반응을 확인하고 개선점 공유</span><span lang="en">On a Spain &amp; Portugal field trip (Nov–Dec 2023), checked itineraries, routes and customer reactions and shared improvements</span></li>
+                        <li><span lang="ko">질문, 예외 상황, 대응 방법을 엑셀 매뉴얼로 문서화해 신규 입사자 교육 자료로 활용</span><span lang="en">Documented FAQs, edge cases and responses in an Excel playbook used to train new hires</span></li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth -->
+    <section class="section">
+        <div class="container">
+            <div class="note-card reveal">
+                <div>
+                    <p class="label"><span lang="ko">입사 4개월 차</span><span lang="en">Month 4</span></p>
+                    <h3><span lang="ko">담당 상품을 맡았어요</span><span lang="en">Given my own product line</span></h3>
+                    <p><span lang="ko">빠르게 업무를 익혀 이탈리아·스위스 일주 패키지를 직접 담당하게 되었어요.</span><span lang="en">I ramped up quickly and took ownership of the Italy &amp; Switzerland packages.</span></p>
+                </div>
+                <div>
+                    <p class="label"><span lang="ko">입사 9개월 차</span><span lang="en">Month 9</span></p>
+                    <h3><span lang="ko">현지 출장 기회를 얻었어요</span><span lang="en">Sent on a field trip abroad</span></h3>
+                    <p><span lang="ko">스페인·포르투갈 현지에서 상품 운영 상태와 고객 반응을 직접 확인했어요.</span><span lang="en">I checked product operations and customer reactions on site in Spain and Portugal.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other -->
+    <section class="section">
+        <div class="container">
+            <div class="sub-head">
+                <p class="eyebrow">Other</p>
+                <h2 class="h-section"><span lang="ko">기타 경력</span><span lang="en">Other experience</span></h2>
+            </div>
+            <ol class="timeline">
+                <li class="reveal">
+                    <time>2019.11 – 2023.02</time>
+                    <div>
+                        <h3><span lang="ko">아마스빈 망월사역점 · 아르바이트</span><span lang="en">Amasvin (Mangwolsa Station) · Part-time</span></h3>
+                        <p><span lang="ko">주말 오픈, 음료 제조, 홀 고객 응대</span><span lang="en">Weekend opening shifts, drink preparation and front-of-house service</span></p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+</main>
+
+<div id="site-footer"></div>
+</body>
 </html>

@@ -176,8 +176,109 @@ function initReveal() {
     items.forEach(el => io.observe(el));
 }
 
+// ---------- Photo galleries ----------
+// <div class="gallery" data-path="assets/img/archive/usco" data-count="40" [data-start="1"] data-alt="..."></div>
+// builds a horizontal strip of 01.jpg … NN.jpg with prev/next buttons; clicking a photo opens the lightbox.
+function initGalleries() {
+    document.querySelectorAll('.gallery[data-path]').forEach(gallery => {
+        const {path, count, start = 1, alt = ''} = gallery.dataset;
+        const total = Number(count);
+        const items = Array.from({length: total}, (_, i) => {
+            const n = String(Number(start) + i).padStart(2, '0');
+            return `<button type="button" class="gallery-item" data-index="${i}">
+                        <img src="${path}/${n}.jpg" alt="${alt} ${i + 1}" loading="lazy" decoding="async">
+                    </button>`;
+        }).join('');
+
+        gallery.innerHTML = `
+            <div class="gallery-track">${items}</div>
+            <div class="gallery-bar">
+                <span class="gallery-count">${bi(`사진 ${total}장`, `${total} photos`)}</span>
+                <div class="gallery-btns">
+                    <button type="button" data-dir="-1" aria-label="Previous">←</button>
+                    <button type="button" data-dir="1" aria-label="Next">→</button>
+                </div>
+            </div>`;
+
+        const track = gallery.querySelector('.gallery-track');
+        const [prev, next] = gallery.querySelectorAll('[data-dir]');
+        const update = () => {
+            prev.disabled = track.scrollLeft <= 2;
+            next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+        };
+        gallery.querySelectorAll('[data-dir]').forEach(btn => btn.addEventListener('click', () => {
+            track.scrollBy({left: Number(btn.dataset.dir) * track.clientWidth * 0.8});
+        }));
+        track.addEventListener('scroll', update, {passive: true});
+        window.addEventListener('resize', update);
+        track.querySelectorAll('img').forEach(img => img.addEventListener('load', update, {once: true}));
+        update();
+
+        const srcs = Array.from(track.querySelectorAll('img'), img => img.src);
+        track.addEventListener('click', e => {
+            const item = e.target.closest('.gallery-item');
+            if (item) openLightbox(srcs, Number(item.dataset.index));
+        });
+    });
+}
+
+let lightbox;
+function openLightbox(srcs, start) {
+    if (!lightbox) {
+        lightbox = document.createElement('dialog');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox-top">
+                <span class="lightbox-count"></span>
+                <button type="button" data-close aria-label="Close">✕</button>
+            </div>
+            <div class="lightbox-stage">
+                <button type="button" data-step="-1" aria-label="Previous">←</button>
+                <img alt="">
+                <button type="button" data-step="1" aria-label="Next">→</button>
+            </div>`;
+        document.body.appendChild(lightbox);
+
+        lightbox.addEventListener('click', e => {
+            if (e.target.closest('[data-close]') || e.target === lightbox || e.target.classList.contains('lightbox-stage')) {
+                lightbox.close();
+            }
+            const step = e.target.closest('[data-step]');
+            if (step) lightbox.go(Number(step.dataset.step));
+        });
+        lightbox.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft') lightbox.go(-1);
+            if (e.key === 'ArrowRight') lightbox.go(1);
+        });
+        // swipe on touch screens
+        let startX = null;
+        lightbox.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive: true});
+        lightbox.addEventListener('touchend', e => {
+            if (startX === null) return;
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) lightbox.go(dx < 0 ? 1 : -1);
+            startX = null;
+        });
+    }
+
+    let index = start;
+    const img = lightbox.querySelector('img');
+    const counter = lightbox.querySelector('.lightbox-count');
+    const render = () => {
+        img.src = srcs[index];
+        counter.textContent = `${index + 1} / ${srcs.length}`;
+    };
+    lightbox.go = step => {
+        index = (index + step + srcs.length) % srcs.length;
+        render();
+    };
+    render();
+    lightbox.showModal();
+}
+
 renderHeader();
 renderFooter();
 initLang();
 initEmailCopy();
+initGalleries();
 initReveal();
