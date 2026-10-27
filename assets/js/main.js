@@ -10,6 +10,7 @@ const EMAIL = '7syeonk29@gmail.com';
 const LINKS = {
     linkedin: 'https://www.linkedin.com/in/soyeon-kim-735996394',
     github: 'https://github.com/sol729',
+    figma: 'https://www.figma.com/design/xteqtuAjhzONe38m1xGFaz/%EC%BA%90%EB%9F%AC%EC%85%80-%EC%BD%98%ED%85%90%EC%B8%A0-%EB%AA%A8%EC%9D%8C_%EA%B9%80%EC%86%8C%EC%97%B0?node-id=2-5',
     portfolio: 'https://drive.google.com/drive/folders/12Eg0Wg3hJxGtJngfE_HioBsgVnFIuzoo?usp=sharing',
     resume: 'https://drive.google.com/drive/folders/12_uu06jVCLRqLd8jphip2cSTAtKFF7N7?usp=sharing',
 };
@@ -98,6 +99,7 @@ function renderFooter() {
                         <li><a href="${LINKS.linkedin}" target="_blank" rel="noopener">LinkedIn</a></li>
                         <li><a href="${LINKS.github}" target="_blank" rel="noopener">GitHub</a></li>
                         <li><a href="${LINKS.resume}" target="_blank" rel="noopener">Resume</a></li>
+                        <li><a href="${LINKS.figma}" target="_blank" rel="noopener">Figma</a></li>
                         <li><a href="${LINKS.portfolio}" target="_blank" rel="noopener">${bi('PPT 포트폴리오', 'PDF Portfolio')}</a></li>
                     </ul>
                 </div>
