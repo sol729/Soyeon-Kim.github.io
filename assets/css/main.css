@@ -790,5 +790,5 @@ body {
     .reveal { opacity: 1; transform: none; }
 }
 
-/* Home hero portrait — plain photo, no dotted frame behind it */
-.hero .hero-visual::before { content: none; }
+/* Portraits — plain photo, no dotted frame behind it */
+.hero-visual::before { content: none; }
