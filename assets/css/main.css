@@ -789,3 +789,6 @@ body {
     *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     .reveal { opacity: 1; transform: none; }
 }
+
+/* Home hero portrait — plain photo, no dotted frame behind it */
+.hero .hero-visual::before { content: none; }
