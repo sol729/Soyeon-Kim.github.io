@@ -806,3 +806,34 @@ body {
 .insta-grid::-webkit-scrollbar { display: none; }
 .insta-grid iframe { flex: none; width: 320px; height: 560px; scroll-snap-align: start; }
 .gallery + .insta-row { margin-top: 24px; }
+
+/* Home metrics — small charts beside the numbers */
+.metric-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; min-height: 76px; }
+.metric-top .metric-value { padding-bottom: 14px; }
+.mini-bars { display: flex; align-items: flex-end; gap: 26px; height: 76px; padding-bottom: 18px; position: relative; }
+.mini-bars::after { content: ""; position: absolute; left: -4px; right: -4px; bottom: 18px; height: 1px; background: var(--ink-3); }
+.mini-bar { position: relative; width: 20px; height: 100%; display: flex; align-items: flex-end; justify-content: center; }
+.mini-bar i {
+    min-height: 3px;
+    display: block; width: 100%; height: var(--h); border-radius: 4px 4px 0 0; background: #E3CFAF;
+    transform-origin: bottom; transform: scaleY(0); transition: transform .9s var(--ease) .2s;
+}
+.mini-bar.is-hi i { background: var(--accent); }
+.mini-bar small {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 4px;
+    font-size: 11px; line-height: 1; color: var(--ink-3); white-space: nowrap;
+}
+.mini-bar.is-hi small { color: var(--ink-2); font-weight: 600; }
+.mini-ring {
+    --deg: calc(var(--p) * 3.6deg);
+    flex: none; width: 58px; height: 58px; margin-bottom: 14px; border-radius: 50%;
+    background: conic-gradient(var(--accent) var(--deg), #EEDFC5 0);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 11px), #000 calc(100% - 10px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 11px), #000 calc(100% - 10px));
+    transform: rotate(-90deg) scale(.6); opacity: 0; transition: transform .9s var(--ease) .2s, opacity .6s .2s;
+}
+.metric.is-visible .mini-bar i { transform: scaleY(1); }
+.metric.is-visible .mini-ring { transform: rotate(0) scale(1); opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+    .mini-bar i, .mini-ring { transform: none; opacity: 1; transition: none; }
+}
