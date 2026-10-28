@@ -792,3 +792,7 @@ body {
 
 /* Portraits — plain photo, no dotted frame behind it */
 .hero-visual::before { content: none; }
+
+/* Plain backgrounds (no polka dots) */
+.quote { background-color: var(--accent-tint); background-image: none; }
+.note-card, .figma-card { background-image: none; }
