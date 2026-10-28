@@ -203,24 +203,50 @@ function initGalleries() {
             </div>`;
 
         const track = gallery.querySelector('.gallery-track');
-        const [prev, next] = gallery.querySelectorAll('[data-dir]');
-        const update = () => {
-            prev.disabled = track.scrollLeft <= 2;
-            next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
-        };
-        gallery.querySelectorAll('[data-dir]').forEach(btn => btn.addEventListener('click', () => {
-            track.scrollBy({left: Number(btn.dataset.dir) * track.clientWidth * 0.8});
-        }));
-        track.addEventListener('scroll', update, {passive: true});
-        window.addEventListener('resize', update);
+        const update = bindScrollButtons(gallery, track);
         track.querySelectorAll('img').forEach(img => img.addEventListener('load', update, {once: true}));
-        update();
 
         const srcs = Array.from(track.querySelectorAll('img'), img => img.src);
         track.addEventListener('click', e => {
             const item = e.target.closest('.gallery-item');
             if (item) openLightbox(srcs, Number(item.dataset.index));
         });
+    });
+}
+
+// Prev/next buttons for a horizontal scroller; returns the button-state updater
+function bindScrollButtons(root, track) {
+    const [prev, next] = root.querySelectorAll('[data-dir]');
+    const update = () => {
+        prev.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+    };
+    root.querySelectorAll('[data-dir]').forEach(btn => btn.addEventListener('click', () => {
+        track.scrollBy({left: Number(btn.dataset.dir) * track.clientWidth * 0.8});
+    }));
+    track.addEventListener('scroll', update, {passive: true});
+    window.addEventListener('resize', update);
+    update();
+    return update;
+}
+
+// Instagram embeds sit in one row that slides sideways, with the same controls as photo galleries
+function initInstaRows() {
+    document.querySelectorAll('.insta-grid').forEach(track => {
+        const total = track.querySelectorAll('iframe').length;
+        const row = document.createElement('div');
+        row.className = 'insta-row';
+        track.before(row);
+        row.append(track);
+        row.insertAdjacentHTML('beforeend', `
+            <div class="gallery-bar">
+                <span class="gallery-count">${bi(`게시물 ${total}개`, `${total} posts`)}</span>
+                <div class="gallery-btns">
+                    <button type="button" data-dir="-1" aria-label="Previous">←</button>
+                    <button type="button" data-dir="1" aria-label="Next">→</button>
+                </div>
+            </div>`);
+        bindScrollButtons(row, track);
     });
 }
 
@@ -283,4 +309,5 @@ renderFooter();
 initLang();
 initEmailCopy();
 initGalleries();
+initInstaRows();
 initReveal();

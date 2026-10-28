@@ -797,8 +797,12 @@ body {
 .quote { background-color: var(--accent-tint); background-image: none; }
 .note-card, .figma-card { background-image: none; }
 
-/* Instagram grids inside case studies (narrower column) */
-.insta-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.insta-grid--2 iframe { height: 600px; }
-.insta-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.gallery + .insta-grid { margin-top: 24px; }
+/* Instagram embeds — one sliding row */
+.insta-row { min-width: 0; }
+.insta-grid {
+    display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+.insta-grid::-webkit-scrollbar { display: none; }
+.insta-grid iframe { flex: none; width: 320px; height: 560px; scroll-snap-align: start; }
+.gallery + .insta-row { margin-top: 24px; }
