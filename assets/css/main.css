@@ -796,3 +796,9 @@ body {
 /* Plain backgrounds (no polka dots) */
 .quote { background-color: var(--accent-tint); background-image: none; }
 .note-card, .figma-card { background-image: none; }
+
+/* Instagram grids inside case studies (narrower column) */
+.insta-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.insta-grid--2 iframe { height: 600px; }
+.insta-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gallery + .insta-grid { margin-top: 24px; }
