@@ -858,3 +858,17 @@ body {
     .mini-bars { height: 64px; margin-left: 4px; }
     .mini-ring { width: 48px; height: 48px; margin-bottom: 0; }
 }
+
+/* Footer e-mail: visible address + copy */
+.footer-mail { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.footer-mail a { color: #fff; font-size: 18px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(255, 255, 255, .35); }
+.footer-mail a:hover { color: var(--highlight); }
+
+/* Channel stats + per-creative table */
+.channel-stats { margin: -4px 0 18px; }
+.creative-table { width: 100%; max-width: 480px; border-collapse: collapse; font-size: 14px; }
+.creative-table th, .creative-table td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+.creative-table thead th { font-size: 12px; font-weight: 600; color: var(--ink-3); }
+.creative-table tr.is-hi td { background: var(--accent-tint); font-weight: 700; }
+
+[hidden] { display: none !important; }

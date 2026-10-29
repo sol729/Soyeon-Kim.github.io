@@ -17,6 +17,11 @@ const LINKS = {
     portfolio: 'https://drive.google.com/drive/folders/12Eg0Wg3hJxGtJngfE_HioBsgVnFIuzoo?usp=sharing',
     // TODO: 폴더 → PDF 파일 직접 링크로 교체
     resume: 'https://drive.google.com/drive/folders/12_uu06jVCLRqLd8jphip2cSTAtKFF7N7?usp=sharing',
+    // TODO: YouTube '소연이야' 채널 URL 입력 (비어 있으면 버튼이 숨겨짐)
+    youtube: '',
+    // TODO: Instagram 계정 URL 입력 (비어 있으면 버튼이 숨겨짐)
+    instagram: '',
+    aipassGithub: 'https://github.com/BaeYoungHwan/STrafficFinalProject',
 };
 
 const NAV = [
@@ -93,9 +98,12 @@ function renderFooter() {
                         <p>${bi('새로운 커리어 기회와 커피챗은 언제나 환영합니다.',
                                 'Open to new roles and always happy to grab a coffee chat.')}</p>
                     </div>
-                    <button type="button" class="btn" data-copy-email>
-                        ${EMAIL} <span class="arrow" aria-hidden="true">⧉</span>
-                    </button>
+                    <div class="footer-mail">
+                        <a href="mailto:${EMAIL}">${EMAIL}</a>
+                        <button type="button" class="btn" data-copy-email>
+                            ${bi('복사', 'Copy')} <span class="arrow" aria-hidden="true">⧉</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="footer-bottom">
                     <p>&copy; 2026 Kim Soyeon. All rights reserved.</p>
@@ -258,6 +266,7 @@ function initLinks() {
     document.querySelectorAll('a[data-link]').forEach(a => {
         const url = LINKS[a.dataset.link];
         if (url) a.href = url;
+        else a.hidden = true; // no URL yet: hide rather than show a dead link
     });
 }
 
