@@ -30,6 +30,11 @@ const NAV = [
     {href: 'career.html', ko: '경력', en: 'Career'},
     {href: 'archiving.html', ko: '프로젝트', en: 'Projects'},
 ];
+// External documents shown after the page links (open in a new tab)
+const NAV_EXT = [
+    {link: 'resume', ko: '이력서', en: 'Resume'},
+    {link: 'portfolio', ko: '포트폴리오', en: 'Portfolio'},
+];
 
 // Pages in sub-folders (e.g. projects/) set <body data-root="../">
 const ROOT = document.body.dataset.root || '';
@@ -45,12 +50,14 @@ function renderHeader() {
     const navLinks = NAV.map(item => {
         const active = current === item.href || document.body.dataset.section === item.href;
         return `<a href="${ROOT}${item.href}"${active ? ' aria-current="page"' : ''}>${bi(item.ko, item.en)}</a>`;
-    }).join('');
+    }).join('') + NAV_EXT.map(item =>
+        `<a href="${LINKS[item.link]}" class="nav-ext" target="_blank" rel="noopener">${bi(item.ko, item.en)} <span aria-hidden="true">↗</span></a>`
+    ).join('');
 
     slot.innerHTML = `
         <header class="site-header">
             <div class="container">
-                <a href="${ROOT}index.html" class="brand">Soyeon Kim<span>.</span></a>
+                <a href="${ROOT}index.html" class="brand">${bi('김소연', 'Soyeon Kim')}<span class="brand-dot">.</span></a>
                 <nav class="nav" id="site-nav" aria-label="Main">${navLinks}</nav>
                 <div class="header-actions">
                     <div class="lang-toggle" role="group" aria-label="Language">

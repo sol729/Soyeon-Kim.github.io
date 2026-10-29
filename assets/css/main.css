@@ -142,7 +142,7 @@ html[data-lang="en"] body [lang="ko"] { display: none !important; }
 }
 
 .brand { font-weight: 800; font-size: 18px; letter-spacing: -0.02em; }
-.brand span { color: var(--accent); }
+.brand .brand-dot { color: var(--accent); }
 
 .nav { display: flex; align-items: center; gap: 4px; }
 .nav a {
@@ -674,7 +674,7 @@ body {
 
 .site-header { background: rgba(255, 248, 235, .88); }
 
-.brand span {
+.brand .brand-dot {
     display: inline-block; width: 7px; height: 7px; margin-left: 3px; vertical-align: baseline;
     border-radius: 50%; background: var(--highlight); box-shadow: 0 0 0 1.5px var(--ink);
     font-size: 0;
@@ -872,3 +872,13 @@ body {
 .creative-table tr.is-hi td { background: var(--accent-tint); font-weight: 700; }
 
 [hidden] { display: none !important; }
+
+/* Header: active page in accent, external doc links */
+.nav a[aria-current="page"] { color: var(--accent); font-weight: 700; }
+.nav a.nav-ext { color: var(--ink-3); }
+.nav a.nav-ext:hover { color: var(--ink); }
+.nav a.nav-ext:first-of-type { margin-left: 8px; }
+
+/* Career: tools row + bottom page links */
+.facts .facts-wide { grid-column: 1 / -1; }
+.page-links { display: flex; justify-content: space-between; gap: 16px; padding-top: 32px; border-top: 1px solid var(--line); }
