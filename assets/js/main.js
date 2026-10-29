@@ -7,11 +7,15 @@
 
 const EMAIL = '7syeonk29@gmail.com';
 
+// Every external profile/document link on the site comes from here.
+// In HTML, use <a href="#" data-link="resume" target="_blank" rel="noopener"> and initLinks() fills in the URL.
 const LINKS = {
     linkedin: 'https://www.linkedin.com/in/soyeon-kim-735996394',
     github: 'https://github.com/sol729',
     figma: 'https://www.figma.com/design/xteqtuAjhzONe38m1xGFaz/%EC%BA%90%EB%9F%AC%EC%85%80-%EC%BD%98%ED%85%90%EC%B8%A0-%EB%AA%A8%EC%9D%8C_%EA%B9%80%EC%86%8C%EC%97%B0?node-id=2-5',
+    // TODO: 폴더 → PDF 파일 직접 링크로 교체
     portfolio: 'https://drive.google.com/drive/folders/12Eg0Wg3hJxGtJngfE_HioBsgVnFIuzoo?usp=sharing',
+    // TODO: 폴더 → PDF 파일 직접 링크로 교체
     resume: 'https://drive.google.com/drive/folders/12_uu06jVCLRqLd8jphip2cSTAtKFF7N7?usp=sharing',
 };
 
@@ -250,6 +254,13 @@ function initInstaRows() {
     });
 }
 
+function initLinks() {
+    document.querySelectorAll('a[data-link]').forEach(a => {
+        const url = LINKS[a.dataset.link];
+        if (url) a.href = url;
+    });
+}
+
 let lightbox;
 function openLightbox(srcs, start) {
     if (!lightbox) {
@@ -310,4 +321,5 @@ initLang();
 initEmailCopy();
 initGalleries();
 initInstaRows();
+initLinks();
 initReveal();
