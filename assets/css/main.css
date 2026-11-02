@@ -882,3 +882,11 @@ body {
 /* Career: tools row + bottom page links */
 .facts .facts-wide { grid-column: 1 / -1; }
 .page-links { display: flex; justify-content: space-between; gap: 16px; padding-top: 32px; border-top: 1px solid var(--line); }
+
+/* Growschool: the five ad creatives in test order */
+.creative-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 4px 0 24px; }
+.creative-strip figure { margin: 0; }
+.creative-strip img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-sm); border: 2px solid transparent; }
+.creative-strip .is-hi img { border-color: var(--accent); }
+.creative-strip figcaption { margin-top: 6px; font-size: 12px; color: var(--ink-2); }
+.creative-strip figcaption b { color: var(--accent); }
