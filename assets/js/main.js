@@ -22,6 +22,7 @@ const LINKS = {
     // TODO: Instagram 계정 URL 입력 (비어 있으면 버튼이 숨겨짐)
     instagram: '',
     aipassGithub: 'https://github.com/BaeYoungHwan/STrafficFinalProject',
+    growschoolReport: 'https://app.notion.com/p/40c58052086d80ec9a5ac388a4551570',
 };
 
 const NAV = [
